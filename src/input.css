@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+    /* Brand Colors */
+    --color-primary: #C83A2E;
+    --color-accent: #E8752A;
+    --color-background: #FFF7E8;
+    --color-dark: #171412;
+    --color-brown: #6B3826;
+    --color-white: #FFFFFF;
+
+    /* Fonts */
+    --font-heading: "Bungee", sans-serif;
+    --font-body: "Inter", sans-serif;
+}

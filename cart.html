@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cart | PRO BUN</title>
+
+    <meta
+        name="description"
+        content="Review your PRO BUN order, update quantities and continue to checkout."
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+   <link
+  href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+    <!-- Tailwind -->
+    <link
+        rel="stylesheet"
+        href="./dist/output.css"
+    >
+
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .cart-item {
+            transition:
+                background-color 180ms ease,
+                opacity 180ms ease;
+        }
+
+        .cart-item.removing {
+            opacity: 0.45;
+        }
+
+        .quantity-button:disabled {
+            pointer-events: none;
+        }
+
+        .quantity-button:focus-visible,
+        .action-button:focus-visible,
+        .coupon-input:focus-visible,
+        .mobile-menu-link:focus-visible {
+            outline: 2px solid #C7352D;
+            outline-offset: 3px;
+        }
+
+        .toast {
+            transform: translateY(18px);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 220ms ease;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+    </style>
+
+</head>
+
+
+<body class="bg-[#F7F2E9] text-[#211A16] antialiased">
+
+
+<!-- =========================================================
+     ANNOUNCEMENT BAR
+========================================================= -->
+
+<div class="bg-[#211A16] text-[#F7F2E9]">
+
+    <div class="mx-auto flex min-h-7 max-w-[1280px] items-center justify-center px-4">
+
+        <p class="font-body text-[5px] font-bold uppercase tracking-[0.18em] sm:text-[10px]">
+            Free delivery on orders over Rs. 2,000
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="border-b border-[#211A16]/10 bg-[#F7F2E9]">
+
+    <nav class="mx-auto flex h-[55px] max-w-[1280px] items-center justify-between px-5 lg:px-8">
+
+        <!-- LOGO -->
+
+        <a
+            href="./index.html"
+            aria-label="PRO BUN home"
+            class="block"
+        >
+
+           <img
+    src="./assets/images/brand/pro-bun-logo.svg"
+    alt="PRO BUN"
+    class="h-auto w-[90px] sm:w-[100px] lg:w-[105px]"
+>
+
+        </a>
+
+
+        <!-- DESKTOP NAVIGATION -->
+
+        <div class="hidden items-center gap-9 lg:flex">
+
+            <a
+                href="./index.html"
+                class="font-body text-[12px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#C7352D]"
+            >
+                Home
+            </a>
+
+            <a
+                href="./menu.html"
+                class="font-body text-[12px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#C7352D]"
+            >
+                Menu
+            </a>
+
+            <a
+                href="./about.html"
+                class="font-body text-[12px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#C7352D]"
+            >
+                Our Story
+            </a>
+
+            <a
+                href="./contact.html"
+                class="font-body text-[12px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#C7352D]"
+            >
+                Contact
+            </a>
+
+        </div>
+
+
+        <!-- DESKTOP ACTIONS -->
+
+        <div class="hidden items-center gap-7 lg:flex">
+
+            <button
+                id="searchButton"
+                type="button"
+                aria-label="Search PRO BUN menu"
+                class="flex h-9 w-9 items-center justify-center rounded-[4px] border border-[#211A16]/10 transition-colors hover:border-[#C7352D] hover:text-[#C7352D]"
+            >
+                <i class="fa-solid fa-magnifying-glass text-[12px]" aria-hidden="true"></i>
+            </button>
+
+
+            <a
+                href="./cart.html"
+                aria-label="Shopping cart"
+                class="font-body text-[15px] font-bold text-[#C7352D]"
+            >
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span
+                    id="cartCountDesktop"
+                    class="ml-1 text-[10px]"
+                    aria-live="polite"
+                >
+                    (0)
+                </span>
+
+            </a>
+
+
+            <a
+                href="./menu.html"
+                class="rounded-[4px] bg-[#C7352D] px-3 py-2 font-body text-[11px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#A92A24]"
+            >
+                Order Now
+            </a>
+
+        </div>
+
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+            id="mobileMenuButton"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            class="flex h-10 w-10 items-center justify-center rounded-[4px] border border-[#211A16]/20 lg:hidden"
+        >
+
+            <i class="fa-solid fa-bars text-sm"></i>
+
+        </button>
+
+    </nav>
+
+
+    <!-- MOBILE MENU -->
+
+    <div
+        id="mobileMenu"
+        class="hidden border-t border-[#211A16]/10 bg-[#F7F2E9] lg:hidden"
+    >
+
+        <div class="mx-auto max-w-[1280px] px-5 py-5">
+
+            <div class="grid gap-1">
+
+                <a
+                    href="./index.html"
+                    class="mobile-menu-link rounded-[4px] px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.12em] hover:bg-[#211A16] hover:text-white"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="./menu.html"
+                    class="mobile-menu-link rounded-[4px] px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.12em] hover:bg-[#211A16] hover:text-white"
+                >
+                    Menu
+                </a>
+
+                <a
+                    href="./about.html"
+                    class="mobile-menu-link rounded-[4px] px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.12em] hover:bg-[#211A16] hover:text-white"
+                >
+                    Our Story
+                </a>
+
+                <a
+                    href="./contact.html"
+                    class="mobile-menu-link rounded-[4px] px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.12em] hover:bg-[#211A16] hover:text-white"
+                >
+                    Contact
+                </a>
+
+                <button
+    id="mobileSearchButton"
+    data-pro-search-trigger
+    type="button"
+    class="mobile-menu-link flex w-full items-center justify-between rounded-[4px] px-4 py-3 text-left font-body text-xs font-bold uppercase tracking-[0.12em] hover:bg-[#211A16] hover:text-white"
+>
+    <span>Search</span>
+    <i class="fa-solid fa-magnifying-glass text-[11px]" aria-hidden="true"></i>
+</button>
+
+                <a
+                    href="./cart.html"
+                    class="mobile-menu-link mt-2 rounded-[4px] bg-[#C7352D] px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.12em] text-white"
+                >
+                    Cart
+                    <span
+                        id="cartCountMobile"
+                        class="ml-1"
+                    >
+                        (0)
+                    </span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =========================================================
+     CART HERO / BREADCRUMB
+========================================================= -->
+
+<section class="border-b border-[#211A16]/10 bg-[#F7F2E9]">
+
+    <div class="mx-auto max-w-[1280px] px-5 py-10 sm:py-14 lg:px-8 lg:py-16">
+
+        <div class="flex items-center gap-2 font-body text-[9px] font-bold uppercase tracking-[0.16em] text-[#211A16]/40">
+
+            <a
+                href="./index.html"
+                class="transition-colors hover:text-[#C7352D]"
+            >
+                Home
+            </a>
+
+            <span>/</span>
+
+            <span class="text-[#211A16]">
+                Cart
+            </span>
+
+        </div>
+
+
+        <div class="mt-7 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+
+            <div>
+
+                <p class="mb-3 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#C7352D]">
+                    Your order
+                </p>
+
+                <h1 class="font-heading text-6xl font-900 uppercase leading-[0.82] tracking-[-0.035em] sm:text-8xl">
+                    Your Cart<span class="text-[#C7352D]">.</span>
+                </h1>
+
+            </div>
+
+
+            <p
+                id="cartItemSummary"
+                class="max-w-[280px] font-body text-xs leading-5 text-[#211A16]/45 sm:text-right"
+            >
+                Your selected PRO BUN items will appear here.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CART CONTENT
+========================================================= -->
+
+<section class="bg-[#F7F2E9]">
+
+    <div class="mx-auto max-w-[1280px] px-5 py-12 lg:px-8 lg:py-20">
+
+
+        <!-- EMPTY CART -->
+
+        <div
+            id="emptyCart"
+            class="hidden rounded-[8px] border border-[#211A16]/10 bg-white/30 px-6 py-20 text-center"
+        >
+
+            <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#211A16] text-[#F7F2E9]">
+
+                <i class="fa-solid fa-bag-shopping text-2xl"></i>
+
+            </div>
+
+
+            <p class="mt-7 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#C7352D]">
+                Nothing here yet
+            </p>
+
+
+            <h2 class="mt-3 font-heading text-5xl font-900 uppercase leading-none sm:text-6xl">
+                Your cart is empty<span class="text-[#C7352D]">.</span>
+            </h2>
+
+
+            <p class="mx-auto mt-5 max-w-[470px] font-body text-sm leading-7 text-[#211A16]/50">
+                The burgers are waiting. Head back to the menu and build an order worth getting messy for.
+            </p>
+
+
+            <a
+                href="./menu.html"
+                class="mt-8 inline-flex rounded-[4px] bg-[#C7352D] px-7 py-4 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-[#A92A24]"
+            >
+                Explore Menu
+            </a>
+
+        </div>
+
+
+
+        <!-- CART LAYOUT -->
+
+        <div
+            id="cartLayout"
+            class="grid gap-10 lg:grid-cols-[1fr_380px] lg:items-start lg:gap-14"
+        >
+
+
+            <!-- CART ITEMS -->
+
+            <div>
+
+                <div class="flex items-center justify-between border-b border-[#211A16]/15 pb-4">
+
+                    <h2 class="font-body text-[10px] font-bold uppercase tracking-[0.18em]">
+                        Order items
+                    </h2>
+
+
+                    <button
+                        id="clearCart"
+                        type="button"
+                        class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-[#211A16]/40 transition-colors hover:text-[#C7352D]"
+                    >
+                        Clear cart
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="cartItems"
+                    class="divide-y divide-[#211A16]/10"
+                >
+                    <!-- Filled by JavaScript -->
+                </div>
+
+
+                <!-- CONTINUE SHOPPING -->
+
+                <div class="mt-8">
+
+                    <a
+                        href="./menu.html"
+                        class="inline-flex items-center gap-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#211A16] transition-colors hover:text-[#C7352D]"
+                    >
+
+                        <span class="text-[#C7352D]">←</span>
+
+                        Continue shopping
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ORDER SUMMARY -->
+
+            <aside class="lg:sticky lg:top-6">
+
+                <div class="rounded-[8px] bg-[#211A16] p-6 text-[#F7F2E9] sm:p-8">
+
+                    <p class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
+                        Order summary
+                    </p>
+
+
+                    <h2 class="mt-3 font-heading text-4xl font-900 uppercase leading-none">
+                        Let's make it
+                        <span class="text-[#C7352D]">official.</span>
+                    </h2>
+
+
+                    <!-- SUMMARY -->
+
+                    <div class="mt-8 space-y-4 border-t border-[#F7F2E9]/10 pt-6">
+
+                        <div class="flex items-center justify-between gap-5">
+
+                            <span class="font-body text-xs text-[#F7F2E9]/45">
+                                Subtotal
+                            </span>
+
+                            <span
+                                id="subtotal"
+                                class="font-body text-sm font-bold"
+                            >
+                                Rs. 0
+                            </span>
+
+                        </div>
+
+
+                        <div class="flex items-center justify-between gap-5">
+
+                            <span class="font-body text-xs text-[#F7F2E9]/45">
+                                Delivery
+                            </span>
+
+                            <span
+                                id="delivery"
+                                class="font-body text-sm font-bold"
+                            >
+                                Rs. 0
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            id="deliveryNote"
+                            class="font-body text-[9px] leading-5 text-[#F7F2E9]/30"
+                        >
+                            Free delivery on orders over Rs. 2,000.
+                        </div>
+
+                    </div>
+
+
+                    <!-- COUPON -->
+
+                    <div class="mt-7 border-t border-[#F7F2E9]/10 pt-6">
+
+                        <label
+                            for="couponInput"
+                            class="font-body text-[9px] font-bold uppercase tracking-[0.16em] text-[#F7F2E9]/45"
+                        >
+                            Promo code
+                        </label>
+
+
+                        <div class="mt-3 flex">
+
+                            <input
+                                id="couponInput"
+                                type="text"
+                                autocomplete="off"
+                                placeholder="ENTER CODE"
+                                class="coupon-input min-w-0 flex-1 rounded-l-[4px] border border-[#F7F2E9]/15 bg-transparent px-4 py-3 font-body text-[10px] font-bold uppercase tracking-[0.1em] text-white placeholder:text-[#F7F2E9]/25"
+                            >
+
+
+                            <button
+                                id="applyCoupon"
+                                type="button"
+                                class="rounded-r-[4px] bg-[#F7F2E9] px-4 font-body text-[9px] font-bold uppercase tracking-[0.12em] text-[#211A16] transition-colors hover:bg-[#E5A93A]"
+                            >
+                                Apply
+                            </button>
+
+                        </div>
+
+
+                        <p
+                            id="couponMessage"
+                            class="mt-3 hidden font-body text-[9px] leading-5"
+                        >
+                        </p>
+
+                    </div>
+
+
+                    <!-- TOTAL -->
+
+                    <div class="mt-7 flex items-end justify-between gap-4 border-t border-[#F7F2E9]/10 pt-6">
+
+                        <div>
+
+                            <p class="font-body text-[9px] font-bold uppercase tracking-[0.16em] text-[#F7F2E9]/35">
+                                Total
+                            </p>
+
+                            <p class="mt-1 font-body text-[9px] text-[#F7F2E9]/30">
+                                Includes delivery
+                            </p>
+
+                        </div>
+
+
+                        <p
+                            id="total"
+                            class="font-heading text-4xl font-900 uppercase"
+                        >
+                            Rs. 0
+                        </p>
+
+                    </div>
+
+
+                    <!-- CHECKOUT -->
+
+                    <button
+                        id="checkoutButton"
+                        type="button"
+                        class="action-button mt-7 flex min-h-14 w-full items-center justify-center gap-3 rounded-[4px] bg-[#C7352D] px-6 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-[#A92A24]"
+                    >
+
+                        Continue to checkout
+
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+
+                    </button>
+
+
+                    <p class="mt-5 text-center font-body text-[8px] font-bold uppercase tracking-[0.12em] text-[#F7F2E9]/25">
+                        Checkout is ready for backend integration.
+                    </p>
+
+                </div>
+
+
+                <!-- TRUST NOTES -->
+
+                <div class="mt-5 grid grid-cols-2 gap-3">
+
+                    <div class="border border-[#211A16]/10 bg-white/20 p-4">
+
+                        <i class="fa-solid fa-bag-shopping text-[#C7352D]"></i>
+
+                        <p class="mt-3 font-body text-[9px] font-bold uppercase tracking-[0.1em]">
+                            Freshly made
+                        </p>
+
+                    </div>
+
+
+                    <div class="border border-[#211A16]/10 bg-white/20 p-4">
+
+                        <i class="fa-solid fa-truck-fast text-[#C7352D]"></i>
+
+                        <p class="mt-3 font-body text-[9px] font-bold uppercase tracking-[0.1em]">
+                            Fast delivery
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     RELATED / KEEP EATING
+========================================================= -->
+
+<section class="border-t border-[#211A16]/10 bg-[#F7F2E9]">
+
+    <div class="mx-auto max-w-[1280px] px-5 py-16 lg:px-8 lg:py-20">
+
+        <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+
+            <div>
+
+                <p class="mb-3 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#C7352D]">
+                    Not done yet?
+                </p>
+
+                <h2 class="font-heading text-5xl font-900 uppercase leading-none tracking-[-0.03em] sm:text-7xl">
+                    Add something
+                    <span class="text-[#C7352D]">proper.</span>
+                </h2>
+
+            </div>
+
+
+            <a
+                href="./menu.html"
+                class="font-body text-[10px] font-bold uppercase tracking-[0.16em] underline decoration-[#C7352D] decoration-2 underline-offset-4"
+            >
+                Browse menu →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
+
+<section class="bg-[#F7F2E9] px-5 pb-12 lg:px-8 lg:pb-16">
+
+    <div
+        class="relative mx-auto flex min-h-[340px] max-w-[1280px] items-end overflow-hidden rounded-[10px] bg-[#3A2D27]"
+        style="background-image: url('./assets/images/hero/final-cta.png'); background-size: cover; background-position: center;"
+    >
+
+        <div class="absolute inset-0 bg-[#211A16]/65"></div>
+
+
+        <div class="relative z-10 max-w-[700px] p-7 sm:p-12 lg:p-14">
+
+            <p class="mb-5 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
+                PRO BUN
+            </p>
+
+
+            <h2 class="font-heading text-6xl font-900 uppercase leading-[0.85] tracking-[-0.03em] text-white sm:text-8xl">
+
+                Come back
+
+                <br>
+
+                hungry<span class="text-[#C7352D]">.</span>
+
+            </h2>
+
+
+            <p class="mt-6 max-w-[450px] font-body text-sm leading-7 text-white/55">
+                Great food deserves another order. Explore the menu whenever the craving hits.
+            </p>
+
+
+            <a
+                href="./menu.html"
+                class="mt-8 inline-flex rounded-[4px] bg-[#C7352D] px-7 py-4 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-[#A92A24]"
+            >
+                Explore Menu
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="bg-[#211A16] text-[#F7F2E9]">
+
+    <div class="mx-auto max-w-[1280px] px-5 py-16 lg:px-8 lg:py-20">
+
+        <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_0.8fr_1fr]">
+
+
+            <!-- BRAND -->
+
+            <div>
+
+                <a
+                    href="./index.html"
+                    aria-label="PRO BUN home"
+                    class="block"
+                >
+
+                    <img
+                        src="./assets/images/brand/pro-bun-logo.svg"
+                        alt="PRO BUN"
+                        class="h-auto w-[150px]"
+                    >
+
+                </a>
+
+
+                <p class="mt-6 max-w-[320px] font-body text-sm leading-6 text-[#F7F2E9]/45">
+                    Burgers, chicken, fries and drinks made for people who take their cravings seriously.
+                </p>
+
+
+                <a
+                    href="./menu.html"
+                    class="mt-7 inline-flex rounded-[4px] border border-[#F7F2E9]/20 px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:bg-[#F7F2E9] hover:text-[#211A16]"
+                >
+                    Order Online
+                </a>
+
+            </div>
+
+
+            <!-- EXPLORE -->
+
+            <div>
+
+                <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
+                    Explore
+                </h3>
+
+
+                <div class="mt-6 space-y-4">
+
+                    <a
+                        href="./index.html"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Home
+                    </a>
+
+                    <a
+                        href="./menu.html"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Menu
+                    </a>
+
+                    <a
+                        href="./about.html"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Our Story
+                    </a>
+
+                    <a
+                        href="./contact.html"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- MENU -->
+
+            <div>
+
+                <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
+                    Menu
+                </h3>
+
+
+                <div class="mt-6 space-y-4">
+
+                    <a
+                        href="./menu.html#burgers"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Burgers
+                    </a>
+
+                    <a
+                        href="./menu.html#chicken"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Chicken
+                    </a>
+
+                    <a
+                        href="./menu.html#fries"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Fries
+                    </a>
+
+                    <a
+                        href="./menu.html#drinks"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Drinks
+                    </a>
+
+                    <a
+                        href="./menu.html#deals"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Deals
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div>
+
+                <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
+                    Get in touch
+                </h3>
+
+
+                <div class="mt-6 space-y-4">
+
+                    <p class="font-body text-xs leading-5 text-[#F7F2E9]/55">
+                        F7 Markaz Food Street
+                        <br>
+                        Islamabad, Pakistan
+                    </p>
+
+
+                    <a
+                        href="tel:+923123456789"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        +92 312 3456789
+                    </a>
+
+
+                    <a
+                        href="mailto:hello@probun.com"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        hello@probun.com
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER BOTTOM -->
+
+        <div class="mt-16 flex flex-col gap-6 border-t border-[#F7F2E9]/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+
+            <p class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-[#F7F2E9]/30">
+
+                © 2026 PRO BUN.
+                Made with &#10084;&#65039; by
+
+                <span class="text-[#E5A93A]">
+                    Saim Ishfaq
+                </span>.
+
+            </p>
+
+
+            <div class="flex gap-3">
+
+                <a
+                    href="#"
+                    aria-label="Instagram"
+                    class="flex h-10 w-10 items-center justify-center rounded-full border border-[#F7F2E9]/15 text-[#F7F2E9]/60 transition-all hover:border-[#C7352D] hover:bg-[#C7352D] hover:text-white"
+                >
+                    <i class="fa-brands fa-instagram text-sm"></i>
+                </a>
+
+
+                <a
+                    href="#"
+                    aria-label="Facebook"
+                    class="flex h-10 w-10 items-center justify-center rounded-full border border-[#F7F2E9]/15 text-[#F7F2E9]/60 transition-all hover:border-[#C7352D] hover:bg-[#C7352D] hover:text-white"
+                >
+                    <i class="fa-brands fa-facebook-f text-sm"></i>
+                </a>
+
+
+                <a
+                    href="#"
+                    aria-label="TikTok"
+                    class="flex h-10 w-10 items-center justify-center rounded-full border border-[#F7F2E9]/15 text-[#F7F2E9]/60 transition-all hover:border-[#C7352D] hover:bg-[#C7352D] hover:text-white"
+                >
+                    <i class="fa-brands fa-tiktok text-sm"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div
+    id="toast"
+    class="toast fixed bottom-5 left-1/2 z-[100] -translate-x-1/2"
+>
+
+    <div class="flex items-center gap-3 rounded-[4px] bg-[#211A16] px-5 py-4 text-[#F7F2E9] shadow-2xl">
+
+        <span class="flex h-7 w-7 items-center justify-center rounded-full bg-[#C7352D]">
+            <i class="fa-solid fa-check text-[11px]"></i>
+        </span>
+
+        <p
+            id="toastMessage"
+            class="font-body text-[10px] font-bold uppercase tracking-[0.12em]"
+        >
+            Updated
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     CART SCRIPT
+========================================================= -->
+
+<script>
+
+    const CART_KEY = "proBunCart";
+
+    const DELIVERY_FEE = 250;
+
+    const FREE_DELIVERY_THRESHOLD = 2000;
+
+    const COUPON_CODE = "PRO10";
+
+    const COUPON_DISCOUNT_RATE = 0.10;
+
+
+    let couponApplied = false;
+
+
+    /* =====================================================
+       DOM
+    ===================================================== */
+
+    const cartItemsElement =
+        document.getElementById("cartItems");
+
+    const cartLayout =
+        document.getElementById("cartLayout");
+
+    const emptyCart =
+        document.getElementById("emptyCart");
+
+    const subtotalElement =
+        document.getElementById("subtotal");
+
+    const deliveryElement =
+        document.getElementById("delivery");
+
+    const totalElement =
+        document.getElementById("total");
+
+    const cartItemSummary =
+        document.getElementById("cartItemSummary");
+
+    const deliveryNote =
+        document.getElementById("deliveryNote");
+
+    const couponInput =
+        document.getElementById("couponInput");
+
+    const couponMessage =
+        document.getElementById("couponMessage");
+
+
+
+    /* =====================================================
+       HELPERS
+    ===================================================== */
+
+    const money = (value) => {
+
+        return `Rs. ${Number(value || 0).toLocaleString("en-PK")}`;
+
+    };
+
+
+    const escapeHTML = (value) => {
+
+        return String(value ?? "")
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
+
+    };
+
+
+    const getCart = () => {
+
+        try {
+
+            const savedCart =
+                localStorage.getItem(CART_KEY);
+
+            const parsedCart =
+                savedCart ? JSON.parse(savedCart) : [];
+
+            return Array.isArray(parsedCart)
+                ? parsedCart
+                : [];
+
+        } catch (error) {
+
+            return [];
+
+        }
+
+    };
+
+
+    const saveCart = (cart) => {
+
+        localStorage.setItem(
+            CART_KEY,
+            JSON.stringify(cart)
+        );
+
+        window.dispatchEvent(new Event("proBunCartUpdated"));
+
+    };
+
+
+    const getCartCount = (cart = getCart()) => {
+
+        return cart.reduce(
+            (total, item) => {
+                return total + Math.max(
+                    0,
+                    Number(item.quantity) || 0
+                );
+            },
+            0
+        );
+
+    };
+
+
+    const updateHeaderCount = (cart = getCart()) => {
+
+        const count = getCartCount(cart);
+
+        document.getElementById(
+            "cartCountDesktop"
+        ).textContent = `(${count})`;
+
+        document.getElementById(
+            "cartCountMobile"
+        ).textContent = `(${count})`;
+
+    };
+
+
+    const showToast = (message) => {
+
+        const toast =
+            document.getElementById("toast");
+
+        const toastMessage =
+            document.getElementById("toastMessage");
+
+        toastMessage.textContent = message;
+
+        toast.classList.add("show");
+
+        clearTimeout(window.proBunToastTimer);
+
+        window.proBunToastTimer =
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 2500);
+
+    };
+
+
+
+    /* =====================================================
+       CART CALCULATIONS
+    ===================================================== */
+
+    const calculateSubtotal = (cart) => {
+
+        return cart.reduce(
+            (total, item) => {
+
+                const price =
+                    Number(item.price) || 0;
+
+                const quantity =
+                    Math.max(
+                        0,
+                        Number(item.quantity) || 0
+                    );
+
+                return total + price * quantity;
+
+            },
+            0
+        );
+
+    };
+
+
+    const calculateDelivery = (subtotal) => {
+
+        if (subtotal <= 0) {
+            return 0;
+        }
+
+        return subtotal >= FREE_DELIVERY_THRESHOLD
+            ? 0
+            : DELIVERY_FEE;
+
+    };
+
+
+    const calculateDiscount = (subtotal) => {
+
+        if (!couponApplied) {
+            return 0;
+        }
+
+        return Math.round(
+            subtotal * COUPON_DISCOUNT_RATE
+        );
+
+    };
+
+
+
+    /* =====================================================
+       CART ITEM MARKUP
+    ===================================================== */
+
+    const renderCartItems = (cart) => {
+
+        if (!cart.length) {
+
+            cartItemsElement.innerHTML = "";
+
+            cartLayout.classList.add("hidden");
+
+            emptyCart.classList.remove("hidden");
+
+            cartItemSummary.textContent =
+                "No items in your order yet.";
+
+            return;
+
+        }
+
+
+        cartLayout.classList.remove("hidden");
+
+        emptyCart.classList.add("hidden");
+
+
+        const count =
+            getCartCount(cart);
+
+        cartItemSummary.textContent =
+            `${count} ${count === 1 ? "item" : "items"} in your order.`;
+
+
+        cartItemsElement.innerHTML =
+            cart.map((item, index) => {
+
+                const quantity =
+                    Math.max(
+                        1,
+                        Number(item.quantity) || 1
+                    );
+
+                const price =
+                    Number(item.price) || 0;
+
+                const lineTotal =
+                    price * quantity;
+
+
+                const imageMarkup =
+                    item.image
+                        ? `
+                            <img
+                                src="${escapeHTML(item.image)}"
+                                alt="${escapeHTML(item.name)}"
+                                class="h-full w-full object-cover"
+                            >
+                        `
+                        : `
+                            <div class="flex h-full w-full items-center justify-center bg-[#211A16] text-[#F7F2E9]">
+                                <i class="fa-solid fa-burger text-2xl text-[#E5A93A]"></i>
+                            </div>
+                        `;
+
+
+                return `
+                    <article
+                        class="cart-item grid gap-5 py-6 sm:grid-cols-[112px_1fr_auto] sm:items-center"
+                        data-index="${index}"
+                    >
+
+                        <!-- IMAGE -->
+
+                        <a
+                            href="./product.html?id=${encodeURIComponent(item.id)}"
+                            class="block aspect-square overflow-hidden rounded-[6px] bg-[#E8DED0]"
+                        >
+
+                            ${imageMarkup}
+
+                        </a>
+
+
+                        <!-- DETAILS -->
+
+                        <div class="min-w-0">
+
+                            <div class="flex flex-wrap items-start justify-between gap-3">
+
+                                <div>
+
+                                    <p class="font-body text-[9px] font-bold uppercase tracking-[0.16em] text-[#C7352D]">
+                                        ${escapeHTML(item.category || "PRO BUN")}
+                                    </p>
+
+                                    <h3 class="mt-1 font-heading text-3xl font-900 uppercase leading-none">
+                                        ${escapeHTML(item.name || "Product")}
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <p class="mt-2 font-body text-[10px] text-[#211A16]/40">
+                                ${money(price)} each
+                            </p>
+
+
+                            <!-- QUANTITY -->
+
+                            <div class="mt-4 flex w-fit items-center rounded-[4px] border border-[#211A16]/15">
+
+                                <button
+                                    type="button"
+                                    data-action="decrease"
+                                    data-index="${index}"
+                                    aria-label="Decrease ${escapeHTML(item.name)} quantity"
+                                    ${quantity <= 1 ? "disabled" : ""}
+                                    class="quantity-button flex h-9 w-9 items-center justify-center font-body text-base transition-colors hover:bg-[#211A16] hover:text-white disabled:cursor-not-allowed disabled:opacity-25 disabled:hover:bg-transparent disabled:hover:text-[#211A16]"
+                                >
+                                    −
+                                </button>
+
+
+                                <span class="flex h-9 min-w-9 items-center justify-center border-x border-[#211A16]/15 font-body text-[11px] font-bold">
+                                    ${quantity}
+                                </span>
+
+
+                                <button
+                                    type="button"
+                                    data-action="increase"
+                                    data-index="${index}"
+                                    aria-label="Increase ${escapeHTML(item.name)} quantity"
+                                    class="quantity-button flex h-9 w-9 items-center justify-center font-body text-base transition-colors hover:bg-[#211A16] hover:text-white"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PRICE / REMOVE -->
+
+                        <div class="flex items-end justify-between gap-6 sm:flex-col sm:items-end sm:justify-center">
+
+                            <p class="font-heading text-3xl font-900 uppercase">
+                                ${money(lineTotal)}
+                            </p>
+
+
+                            <button
+                                type="button"
+                                data-action="remove"
+                                data-index="${index}"
+                                class="font-body text-[9px] font-bold uppercase tracking-[0.14em] text-[#211A16]/35 transition-colors hover:text-[#C7352D]"
+                            >
+                                Remove
+                            </button>
+
+                        </div>
+
+                    </article>
+                `;
+
+            }).join("");
+
+    };
+
+
+
+    /* =====================================================
+       SUMMARY
+    ===================================================== */
+
+    const renderSummary = (cart) => {
+
+        const subtotal =
+            calculateSubtotal(cart);
+
+        const delivery =
+            calculateDelivery(subtotal);
+
+        const discount =
+            calculateDiscount(subtotal);
+
+        const total =
+            Math.max(
+                0,
+                subtotal + delivery - discount
+            );
+
+
+        subtotalElement.textContent =
+            money(subtotal);
+
+        deliveryElement.textContent =
+            delivery === 0
+                ? "FREE"
+                : money(delivery);
+
+        totalElement.textContent =
+            money(total);
+
+
+        if (subtotal === 0) {
+
+            deliveryNote.textContent =
+                "Free delivery on orders over Rs. 2,000.";
+
+        } else if (subtotal >= FREE_DELIVERY_THRESHOLD) {
+
+            deliveryNote.textContent =
+                "You unlocked free delivery.";
+
+        } else {
+
+            const remaining =
+                FREE_DELIVERY_THRESHOLD - subtotal;
+
+            deliveryNote.textContent =
+                `Add ${money(remaining)} more for free delivery.`;
+
+        }
+
+
+        if (couponApplied) {
+
+            const discountRow =
+                document.getElementById(
+                    "discountRow"
+                );
+
+
+            if (!discountRow) {
+
+                const row =
+                    document.createElement("div");
+
+                row.id = "discountRow";
+
+                row.className =
+                    "flex items-center justify-between gap-5";
+
+
+                row.innerHTML = `
+                    <span class="font-body text-xs text-[#F7F2E9]/45">
+                        PRO10 discount
+                    </span>
+
+                    <span
+                        id="discountAmount"
+                        class="font-body text-sm font-bold text-[#E5A93A]"
+                    >
+                        -${money(discount)}
+                    </span>
+                `;
+
+
+                const summaryTop =
+                    document.querySelector(
+                        "#subtotal"
+                    ).parentElement.parentElement;
+
+                summaryTop.insertBefore(
+                    row,
+                    summaryTop.lastElementChild
+                );
+
+            } else {
+
+                document.getElementById(
+                    "discountAmount"
+                ).textContent =
+                    `-${money(discount)}`;
+
+            }
+
+        } else {
+
+            const discountRow =
+                document.getElementById(
+                    "discountRow"
+                );
+
+            if (discountRow) {
+                discountRow.remove();
+            }
+
+        }
+
+    };
+
+
+
+    /* =====================================================
+       RENDER
+    ===================================================== */
+
+    const render = () => {
+
+        const cart = getCart();
+
+        updateHeaderCount(cart);
+
+        renderCartItems(cart);
+
+        renderSummary(cart);
+
+    };
+
+
+
+    /* =====================================================
+       QUANTITY / REMOVE ACTIONS
+    ===================================================== */
+
+    cartItemsElement.addEventListener(
+        "click",
+        (event) => {
+
+            const button =
+                event.target.closest("button[data-action]");
+
+            if (!button) {
+                return;
+            }
+
+
+            const index =
+                Number(button.dataset.index);
+
+            const action =
+                button.dataset.action;
+
+
+            const cart =
+                getCart();
+
+
+            if (!cart[index]) {
+                return;
+            }
+
+
+            const item =
+                cart[index];
+
+
+            if (action === "increase") {
+
+                item.quantity =
+                    Math.min(
+                        20,
+                        (Number(item.quantity) || 1) + 1
+                    );
+
+                saveCart(cart);
+
+                render();
+
+                showToast("Quantity updated");
+
+            }
+
+
+            if (action === "decrease") {
+
+                const currentQuantity =
+                    Math.max(1, Number(item.quantity) || 1);
+
+                if (currentQuantity <= 1) {
+                    return;
+                }
+
+                item.quantity =
+                    currentQuantity - 1;
+
+                saveCart(cart);
+
+                render();
+
+                showToast(
+                    "Quantity updated"
+                );
+
+            }
+
+
+            if (action === "remove") {
+
+                const itemName =
+                    item.name || "Item";
+
+                button
+                    .closest(".cart-item")
+                    ?.classList.add("removing");
+
+
+                setTimeout(() => {
+
+                    cart.splice(index, 1);
+
+                    saveCart(cart);
+
+                    render();
+
+                    showToast(
+                        `${itemName} removed`
+                    );
+
+                }, 160);
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       CLEAR CART
+    ===================================================== */
+
+    document.getElementById(
+        "clearCart"
+    ).addEventListener(
+        "click",
+        () => {
+
+            const cart = getCart();
+
+            if (!cart.length) {
+                return;
+            }
+
+
+            const confirmed =
+                window.confirm(
+                    "Clear all items from your cart?"
+                );
+
+
+            if (!confirmed) {
+                return;
+            }
+
+
+            localStorage.removeItem(
+                CART_KEY
+            );
+
+            window.dispatchEvent(new Event("proBunCartUpdated"));
+
+            couponApplied = false;
+
+            couponInput.value = "";
+
+            couponMessage.classList.add(
+                "hidden"
+            );
+
+            render();
+
+            showToast(
+                "Cart cleared"
+            );
+
+        }
+    );
+
+
+
+    /* =====================================================
+       COUPON
+    ===================================================== */
+
+    document.getElementById(
+        "applyCoupon"
+    ).addEventListener(
+        "click",
+        () => {
+
+            const code =
+                couponInput.value
+                    .trim()
+                    .toUpperCase();
+
+
+            if (!code) {
+
+                couponMessage.textContent =
+                    "Enter a promo code.";
+
+                couponMessage.className =
+                    "mt-3 font-body text-[9px] leading-5 text-[#E5A93A]";
+
+                return;
+
+            }
+
+
+            if (code === COUPON_CODE) {
+
+                couponApplied = true;
+
+                couponMessage.textContent =
+                    "PRO10 applied — 10% off your subtotal.";
+
+                couponMessage.className =
+                    "mt-3 font-body text-[9px] leading-5 text-[#E5A93A]";
+
+                render();
+
+                showToast(
+                    "Promo code applied"
+                );
+
+            } else {
+
+                couponApplied = false;
+
+                couponMessage.textContent =
+                    "That promo code is not valid.";
+
+                couponMessage.className =
+                    "mt-3 font-body text-[9px] leading-5 text-[#C7352D]";
+
+                render();
+
+            }
+
+        }
+    );
+
+
+    couponInput.addEventListener(
+        "keydown",
+        (event) => {
+
+            if (event.key === "Enter") {
+
+                document.getElementById(
+                    "applyCoupon"
+                ).click();
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       CHECKOUT
+    ===================================================== */
+
+    document.getElementById(
+        "checkoutButton"
+    ).addEventListener(
+        "click",
+        () => {
+
+            const cart = getCart();
+
+            if (!cart.length) {
+
+                showToast(
+                    "Your cart is empty"
+                );
+
+                return;
+
+            }
+
+
+            window.location.href = "./checkout.html";
+
+        }
+    );
+
+
+
+
+    /* =====================================================
+       INITIAL RENDER
+    ===================================================== */
+
+    render();
+
+</script>
+
+
+<script src="./assets/js/cart-sync.js"></script>
+<script src="./assets/js/search.js"></script>
+
+<script>
+(() => {
+    const initMobileMenu = () => {
+        const button = document.getElementById('mobileMenuButton');
+        const menu = document.getElementById('mobileMenu');
+        if (!button || !menu || button.dataset.menuBound === 'true') return;
+        button.dataset.menuBound = 'true';
+        const setOpen = (open) => {
+            menu.classList.toggle('hidden', !open);
+            button.setAttribute('aria-expanded', String(open));
+            button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            button.innerHTML = open
+                ? '<i class="fa-solid fa-xmark text-sm" aria-hidden="true"></i>'
+                : '<i class="fa-solid fa-bars text-sm" aria-hidden="true"></i>';
+        };
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            setOpen(menu.classList.contains('hidden'));
+        });
+        menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+        document.addEventListener('keydown', event => { if (event.key === 'Escape') setOpen(false); });
+        window.addEventListener('resize', () => { if (window.innerWidth >= 1024) setOpen(false); });
+        setOpen(false);
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMobileMenu, { once: true });
+    else initMobileMenu();
+})();
+</script>
+</body>
+
+</html>

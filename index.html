@@ -3,34 +3,52 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<title>PRO BUN | Burgers Worth Coming Back For</title>
+    <title>PRO BUN | Burgers Worth Coming Back For</title>
 
-<meta
-    name="description"
-    content="PRO BUN serves bold burgers, crispy chicken, loaded fries and cold drinks made for serious cravings."
->
+    <meta
+        name="description"
+        content="PRO BUN serves bold burgers, crispy chicken, loaded fries and cold drinks made for serious cravings."
+    >
 
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-/>
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
 >
 
-<link rel="stylesheet" href="./dist/output.css">
+<link
+  href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+    <!-- Tailwind -->
+    <link
+        rel="stylesheet"
+        href="./dist/output.css"
+    >
 
 </head>
 
+
 <body class="bg-[#F7F2E9] text-[#211A16] antialiased">
+
 
 <!-- =========================================================
      ANNOUNCEMENT BAR
@@ -38,15 +56,16 @@
 
 <div class="bg-[#211A16] text-[#F7F2E9]">
 
-<div class="mx-auto flex min-h-9 max-w-[1280px] items-center justify-center px-4">
+    <div class="mx-auto flex min-h-7 max-w-[1280px] items-center justify-center px-4">
 
-    <p class="font-body text-[10px] font-bold uppercase tracking-[0.18em] sm:text-[11px]">
-        Free delivery on orders over Rs. 2,000
-    </p>
+        <p class="font-body text-[5px] font-bold uppercase tracking-[0.18em] sm:text-[10px]">
+            Free delivery on orders over Rs. 2,000
+        </p>
+
+    </div>
 
 </div>
 
-</div>
 
 <!-- =========================================================
      HEADER
@@ -54,102 +73,147 @@
 
 <header class="border-b border-[#211A16]/10 bg-[#F7F2E9]">
 
-<nav class="mx-auto flex h-[78px] max-w-[1280px] items-center justify-between px-5 lg:px-8">
-
-    <!-- LOGO -->
-    <a
-        href="./index.html"
-        aria-label="PRO BUN home"
-        class="block"
-    >
-        <img
-            src="./assets/images/brand/pro-bun-logo.svg"
-            alt="PRO BUN"
-            class="h-auto w-[145px] sm:w-[165px]"
-        >
-    </a>
+    <nav class="mx-auto flex h-[55px] max-w-[1280px] items-center justify-between px-5 lg:px-8">
 
 
-    <!-- DESKTOP NAVIGATION -->
-
-    <div class="hidden items-center gap-9 lg:flex">
+        <!-- LOGO -->
 
         <a
             href="./index.html"
-            class="font-body text-[12px] font-bold uppercase tracking-[0.12em] text-[#C7352D]"
+            aria-label="PRO BUN home"
+            class="block"
         >
-            Home
+
+           <img
+    src="./assets/images/brand/pro-bun-logo.svg"
+    alt="PRO BUN"
+    class="h-auto w-[90px] sm:w-[100px] lg:w-[105px]"
+>
+
         </a>
 
-        <a
-            href="./menu.html"
-            class="font-body text-[12px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#C7352D]"
-        >
-            Menu
-        </a>
 
-        <a
-            href="./about.html"
-            class="font-body text-[12px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#C7352D]"
-        >
-            Our Story
-        </a>
+        <!-- DESKTOP NAVIGATION -->
 
-        <a
-            href="./contact.html"
-            class="font-body text-[12px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#C7352D]"
-        >
-            Contact
-        </a>
+        <div class="hidden items-center gap-9 lg:flex">
 
-    </div>
+            <a
+                href="./index.html"
+                class="font-body text-[12px] font-bold uppercase tracking-[0.12em] text-[#C7352D]"
+            >
+                Home
+            </a>
+
+            <a
+                href="./menu.html"
+                class="font-body text-[12px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#C7352D]"
+            >
+                Menu
+            </a>
+
+            <a
+                href="./about.html"
+                class="font-body text-[12px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#C7352D]"
+            >
+                Our Story
+            </a>
+
+            <a
+                href="./contact.html"
+                class="font-body text-[12px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#C7352D]"
+            >
+                Contact
+            </a>
+
+        </div>
 
 
-    <!-- DESKTOP ACTIONS -->
+        <!-- DESKTOP ACTIONS -->
 
-    <div class="hidden items-center gap-7 lg:flex">
+        <div class="hidden items-center gap-7 lg:flex">
+
+            <button
+    id="searchButton"
+    data-pro-search-trigger
+    type="button"
+    aria-label="Search PRO BUN menu"
+    class="flex h-9 w-9 items-center justify-center rounded-[4px] border border-[#211A16]/10 transition-colors hover:border-[#C7352D] hover:text-[#C7352D]"
+>
+    <i class="fa-solid fa-magnifying-glass text-[12px]" aria-hidden="true"></i>
+</button>
+
+            <a
+                href="./cart.html"
+                aria-label="Shopping cart"
+                class="font-body text-[15px] font-bold transition-colors hover:text-[#C7352D]"
+            >
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span id="cartCountDesktop" data-cart-count class="ml-1 text-[10px] text-[#C7352D]">
+                    (0)
+                </span>
+
+            </a>
+
+            <a
+                href="./menu.html"
+                class="rounded-[4px] bg-[#C7352D] px-3 py-2 font-body text-[11px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#A92A24]"
+            >
+                Order Now
+            </a>
+
+        </div>
+
+
+        <!-- MOBILE MENU BUTTON -->
 
         <button
+            id="mobileMenuButton"
             type="button"
-            class="font-body text-[11px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#C7352D]"
+            aria-label="Open menu"
+            class="flex h-10 w-10 items-center justify-center rounded-[4px] border border-[#211A16]/20 lg:hidden"
         >
-            Search
+
+            <i class="fa-solid fa-bars text-sm"></i>
+
         </button>
 
-        <a
-    href="./cart.html"
-    class="font-body text-[15px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#C7352D]"
->
-    <i class="fa-solid fa-cart-shopping"></i>
-    <span class="text-[#C7352D] text-[10px]">(0)</span>
-</a>
+    </nav>
 
-
-        <a
-            href="./menu.html"
-            class="rounded-[4px] bg-[#C7352D] px-5 py-3 font-body text-[11px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#A92A24]"
-        >
-            Order Now
-        </a>
-
-    </div>
-
-
-    <!-- MOBILE MENU BUTTON -->
-
-    <button
-        type="button"
-        aria-label="Open menu"
-        class="flex h-10 w-10 items-center justify-center rounded-[4px] border border-[#211A16]/20 lg:hidden"
+    <div
+        id="mobileMenu"
+        class="hidden relative z-40 border-t border-[#211A16]/10 bg-[#F7F2E9] lg:hidden"
     >
-        <span class="text-xl leading-none">☰</span>
-    </button>
+        <div class="mx-auto max-w-[1280px] px-5 py-5">
+            <div class="grid gap-1">
+                <a href="./index.html" class="mobile-menu-link rounded-[4px] px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.12em] text-[#C7352D] hover:bg-[#211A16] hover:text-white">Home</a>
+                <a href="./menu.html" class="mobile-menu-link rounded-[4px] px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.12em] hover:bg-[#211A16] hover:text-white">Menu</a>
+                <a href="./about.html" class="mobile-menu-link rounded-[4px] px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.12em] hover:bg-[#211A16] hover:text-white">Our Story</a>
+                <a href="./contact.html" class="mobile-menu-link rounded-[4px] px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.12em] hover:bg-[#211A16] hover:text-white">Contact</a>
+                <button
+    id="mobileSearchButton"
+    data-pro-search-trigger
+    type="button"
+    class="mobile-menu-link flex w-full items-center justify-between rounded-[4px] px-4 py-3 text-left font-body text-xs font-bold uppercase tracking-[0.12em] hover:bg-[#211A16] hover:text-white"
+>
+    <span>Search</span>
+    <i class="fa-solid fa-magnifying-glass text-[11px]" aria-hidden="true"></i>
+</button>
 
-</nav>
+                <a href="./cart.html" class="mobile-menu-link mt-2 rounded-[4px] border border-[#211A16]/15 px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.12em]">
+                    Cart <span id="cartCountMobile" data-cart-count class="ml-1 text-[#C7352D]" aria-live="polite">(0)</span>
+                </a>
+            </div>
+        </div>
+    </div>
 
 </header>
 
+
+
 <main>
+
 
 <!-- =========================================================
      HERO
@@ -157,116 +221,128 @@
 
 <section class="relative overflow-hidden bg-[#F7F2E9]">
 
-<div class="mx-auto grid max-w-[1280px] items-center gap-8 px-5 pb-16 pt-12 sm:pb-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 lg:px-8 lg:pb-24 lg:pt-16">
+    <div class="mx-auto grid max-w-[1280px] items-center gap-8 px-5 pb-16 pt-12 sm:pb-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 lg:px-8 lg:pb-24 lg:pt-16">
 
-    <div class="relative z-10">
 
-        <div class="mb-7 flex items-center gap-3">
+        <!-- HERO CONTENT -->
 
-            <span class="h-px w-10 bg-[#C7352D]"></span>
+        <div class="relative z-10">
 
-            <p class="font-body text-[11px] font-bold uppercase tracking-[0.2em] text-[#C7352D]">
-                Burgers. Chicken. Serious cravings.
+            <div class="mb-7 flex items-center gap-3">
+
+                <span class="h-px w-10 bg-[#C7352D]"></span>
+
+                <p class="font-body text-[11px] font-bold uppercase tracking-[0.2em] text-[#C7352D]">
+                    Burgers. Chicken. Serious cravings.
+                </p>
+
+            </div>
+
+
+           <h1 class="max-w-[650px] font-heading text-[clamp(2.75rem,11vw,4.25rem)] font-900 uppercase leading-[0.84] tracking-[-0.035em] sm:text-[92px] lg:text-[112px]">
+
+                Built
+
+                <br>
+
+                For
+
+                <br>
+
+                Cravings<span class="text-[#C7352D]">.</span>
+
+            </h1>
+
+
+            <p class="mt-8 max-w-[470px] font-body text-[15px] leading-7 text-[#211A16]/65">
+
+                Big smashed patties. Properly toasted buns. Crispy edges.
+                The kind of food you think about before you even order it.
+
+            </p>
+
+
+            <div class="mt-9 flex flex-wrap items-center gap-3">
+
+                <a
+                    href="./menu.html"
+                    class="inline-flex min-h-12 items-center justify-center rounded-[4px] bg-[#C7352D] px-7 font-body text-[11px] font-bold uppercase tracking-[0.14em] text-white transition-all hover:bg-[#A92A24]"
+                >
+                    Start Your Order
+                </a>
+
+                <a
+                    href="./menu.html"
+                    class="inline-flex min-h-12 items-center justify-center rounded-[4px] border border-[#211A16]/25 px-7 font-body text-[11px] font-bold uppercase tracking-[0.14em] transition-all hover:bg-[#211A16] hover:text-white"
+                >
+                    View Menu
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO IMAGE -->
+
+        <div class="relative min-h-[470px] sm:min-h-[570px] lg:min-h-[650px]">
+
+            <div
+                class="absolute inset-x-0 bottom-0 top-8 overflow-hidden rounded-[10px] bg-[#211A16]"
+                style="background-image: url('./assets/images/hero/pro-bun-hero.jpg'); background-size: cover; background-position: center;"
+            >
+            </div>
+
+
+            <div class="absolute left-20 top-25 hidden -translate-x-1/2 -rotate-45 sm:block">
+
+                <p class="font-body text-[9px] font-bold uppercase tracking-[0.28em] text-[#F7F2E9]">
+                    Made for the hungry
+                </p>
+
+            </div>
+
+
+            <div class="absolute bottom-7 left-[-8px] flex h-24 w-24 flex-col items-center justify-center rounded-[4px] bg-[#E5A93A] text-[#211A16]">
+
+                <span class="font-body text-[9px] font-bold uppercase tracking-[0.14em]">
+                    From
+                </span>
+
+                <span class="mt-1 font-heading text-2xl font-900">
+                    Rs. 899
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO STRIP -->
+
+    <div class="border-t border-[#211A16]/10 bg-[#211A16]">
+
+        <div class="mx-auto flex max-w-[1280px] items-center justify-between gap-6 overflow-hidden px-5 py-4 lg:px-8">
+
+            <p class="whitespace-nowrap font-heading text-sm font-700 uppercase tracking-wide text-[#F7F2E9] sm:text-lg">
+                Real food. Loud flavor. No nonsense.
+            </p>
+
+            <span class="hidden h-px flex-1 bg-[#F7F2E9]/20 sm:block"></span>
+
+            <p class="whitespace-nowrap font-body text-[9px] font-bold uppercase tracking-[0.2em] text-[#F7F2E9]/45">
+                EST. FOR THE HUNGRY
             </p>
 
         </div>
 
-
-        <h1 class="max-w-[650px] font-heading text-[68px] font-900 uppercase leading-[0.84] tracking-[-0.035em] sm:text-[92px] lg:text-[112px]">
-
-            Built
-            <br>
-            For
-            <br>
-            Cravings<span class="text-[#C7352D]">.</span>
-
-        </h1>
-
-
-        <p class="mt-8 max-w-[470px] font-body text-[15px] leading-7 text-[#211A16]/65">
-
-            Big smashed patties. Properly toasted buns. Crispy edges.
-            The kind of food you think about before you even order it.
-
-        </p>
-
-
-        <div class="mt-9 flex flex-wrap items-center gap-3">
-
-            <a
-                href="./menu.html"
-                class="inline-flex min-h-12 items-center justify-center rounded-[4px] bg-[#C7352D] px-7 font-body text-[11px] font-bold uppercase tracking-[0.14em] text-white transition-all hover:bg-[#A92A24]"
-            >
-                Start Your Order
-            </a>
-
-            <a
-                href="./menu.html"
-                class="inline-flex min-h-12 items-center justify-center rounded-[4px] border border-[#211A16]/25 px-7 font-body text-[11px] font-bold uppercase tracking-[0.14em] transition-all hover:bg-[#211A16] hover:text-white"
-            >
-                View Menu
-            </a>
-
-        </div>
-
     </div>
-
-
-    <div class="relative min-h-[470px] sm:min-h-[570px] lg:min-h-[650px]">
-
-        <div
-            class="absolute inset-x-0 bottom-0 top-8 overflow-hidden rounded-[10px] bg-[#211A16]"
-            style="background-image: url('./assets/images/hero/pro-bun-hero.jpg'); background-size: cover; background-position: center;"
-        >
-        
-        </div>
-
-
-        <div class="absolute left-20 top-25 hidden -translate-x-1/2 -rotate-45 sm:block">
-
-            <p class="font-body text-[9px] font-bold uppercase tracking-[0.28em] text-[#F7F2E9]">
-                Made for the hungry
-            </p>
-
-        </div>
-
-
-        <div class="absolute bottom-7 left-[-8px] flex h-24 w-24 flex-col items-center justify-center rounded-[4px] bg-[#E5A93A] text-[#211A16]">
-
-            <span class="font-body text-[9px] font-bold uppercase tracking-[0.14em]">
-                From
-            </span>
-
-            <span class="mt-1 font-heading text-2xl font-900">
-                Rs. 899
-            </span>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<div class="border-t border-[#211A16]/10 bg-[#211A16]">
-
-    <div class="mx-auto flex max-w-[1280px] items-center justify-between gap-6 overflow-hidden px-5 py-4 lg:px-8">
-
-        <p class="whitespace-nowrap font-heading text-sm font-700 uppercase tracking-wide text-[#F7F2E9] sm:text-lg">
-            Real food. Loud flavor. No nonsense.
-        </p>
-
-        <span class="hidden h-px flex-1 bg-[#F7F2E9]/20 sm:block"></span>
-
-        <p class="whitespace-nowrap font-body text-[9px] font-bold uppercase tracking-[0.2em] text-[#F7F2E9]/45">
-            EST. FOR THE HUNGRY
-        </p>
-
-    </div>
-
-</div>
 
 </section>
+
+
 
 <!-- =========================================================
      CATEGORY STRIP
@@ -274,67 +350,68 @@
 
 <section class="bg-[#211A16] text-[#F7F2E9]">
 
-<div class="mx-auto max-w-[1280px] px-5 py-8 lg:px-8">
+    <div class="mx-auto max-w-[1280px] px-5 py-8 lg:px-8">
 
-    <div class="flex items-center justify-between gap-6">
+        <div class="flex items-center justify-between gap-6">
 
-        <p class="hidden font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#F7F2E9]/45 sm:block">
-            Explore
-        </p>
+            <p class="hidden font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#F7F2E9]/45 sm:block">
+                Explore
+            </p>
 
 
-        <div class="flex w-full items-center gap-2 overflow-x-auto pb-1 sm:justify-end">
+            <div class="flex w-full items-center gap-2 overflow-x-auto pb-1 sm:justify-end">
 
-            <a
-                href="./menu.html?category=all"
-                class="shrink-0 rounded-[4px] bg-[#C7352D] px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-white"
-            >
-                All
-            </a>
+                <a
+                    href="./menu.html?category=all"
+                    class="shrink-0 rounded-[4px] bg-[#C7352D] px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-white"
+                >
+                    All
+                </a>
 
-            <a
-                href="./menu.html?category=burgers"
-                class="shrink-0 rounded-[4px] border border-[#F7F2E9]/20 px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:border-[#C7352D] hover:text-[#C7352D]"
-            >
-                Burgers
-            </a>
+                <a
+                    href="./menu.html?category=burgers"
+                    class="shrink-0 rounded-[4px] border border-[#F7F2E9]/20 px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:border-[#C7352D] hover:text-[#C7352D]"
+                >
+                    Burgers
+                </a>
 
-            <a
-                href="./menu.html?category=chicken"
-                class="shrink-0 rounded-[4px] border border-[#F7F2E9]/20 px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:border-[#C7352D] hover:text-[#C7352D]"
-            >
-                Chicken
-            </a>
+                <a
+                    href="./menu.html?category=chicken"
+                    class="shrink-0 rounded-[4px] border border-[#F7F2E9]/20 px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:border-[#C7352D] hover:text-[#C7352D]"
+                >
+                    Chicken
+                </a>
 
-            <a
-                href="./menu.html?category=fries"
-                class="shrink-0 rounded-[4px] border border-[#F7F2E9]/20 px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:border-[#C7352D] hover:text-[#C7352D]"
-            >
-                Fries
-            </a>
+                <a
+                    href="./menu.html?category=fries"
+                    class="shrink-0 rounded-[4px] border border-[#F7F2E9]/20 px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:border-[#C7352D] hover:text-[#C7352D]"
+                >
+                    Fries
+                </a>
 
-            <a
-                href="./menu.html?category=drinks"
-                class="shrink-0 rounded-[4px] border border-[#F7F2E9]/20 px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:border-[#C7352D] hover:text-[#C7352D]"
-            >
-                Drinks
-            </a>
+                <a
+                    href="./menu.html?category=drinks"
+                    class="shrink-0 rounded-[4px] border border-[#F7F2E9]/20 px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:border-[#C7352D] hover:text-[#C7352D]"
+                >
+                    Drinks
+                </a>
 
-            <a
-                href="./menu.html?category=deals"
-                class="shrink-0 rounded-[4px] border border-[#F7F2E9]/20 px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:border-[#C7352D] hover:text-[#C7352D]"
-            >
-                Deals
-            </a>
+                <a
+                    href="./menu.html?category=deals"
+                    class="shrink-0 rounded-[4px] border border-[#F7F2E9]/20 px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:border-[#C7352D] hover:text-[#C7352D]"
+                >
+                    Deals
+                </a>
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
-
-
 </section>
+
+
 
 <!-- =========================================================
      CROWD FAVORITES
@@ -342,346 +419,389 @@
 
 <section class="bg-[#F7F2E9]">
 
-<div class="mx-auto max-w-[1280px] px-5 py-20 lg:px-8 lg:py-28">
+    <div class="mx-auto max-w-[1280px] px-5 py-20 lg:px-8 lg:py-28">
 
-    <div class="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+        <div class="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
 
-        <div>
+            <div>
 
-            <p class="mb-3 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#C7352D]">
-                The regulars know
-            </p>
+                <p class="mb-3 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#C7352D]">
+                    The regulars know
+                </p>
 
-            <h2 class="font-heading text-5xl font-900 uppercase leading-none tracking-[-0.03em] sm:text-7xl">
-                Crowd Favorites<span class="text-[#C7352D]">.</span>
-            </h2>
+                <h2 class="font-heading text-5xl font-900 uppercase leading-none tracking-[-0.03em] sm:text-7xl">
+                    Crowd Favorites<span class="text-[#C7352D]">.</span>
+                </h2>
+
+            </div>
+
+
+            <a
+                href="./menu.html"
+                class="font-body text-[10px] font-bold uppercase tracking-[0.16em] underline decoration-[#C7352D] decoration-2 underline-offset-4"
+            >
+                See full menu →
+            </a>
 
         </div>
 
 
-        <a
-            href="./menu.html"
-            class="font-body text-[10px] font-bold uppercase tracking-[0.16em] underline decoration-[#C7352D] decoration-2 underline-offset-4"
-        >
-            See full menu →
-        </a>
-
-    </div>
+        <div class="grid gap-x-5 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
 
 
-    <div class="grid gap-x-5 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+            <!-- CHEESE MELT -->
 
-
-        <!-- 01 — CHEESE MELT -->
-
-        <article>
-
-            <a href="./product.html?id=cheese-melt" class="block">
-
-                <div
-                    class="relative aspect-[4/4.6] overflow-hidden rounded-[8px] bg-[#E8DED0]"
-                    style="background-image: url('./assets/images/products/cheese-melt.jpg'); background-size: cover; background-position: center;"
-                >
-
-                    <div class="absolute left-3 top-3 rounded-[3px] bg-[#C7352D] px-3 py-2">
-
-                        <span class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-white">
-                            Bestseller
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-            <div class="pt-4">
-
-                <div class="flex items-start justify-between gap-4">
-
-                    <div>
-
-                        <p class="font-heading text-2xl font-900 uppercase leading-none">
-                            Cheese Melt
-                        </p>
-
-                        <p class="mt-2 font-body text-xs leading-5 text-[#211A16]/55">
-                            Crispy edges, melted cheddar, Pro Sauce.
-                        </p>
-
-                    </div>
-
-                    <p class="whitespace-nowrap font-body text-sm font-bold">
-                        Rs. 1,350
-                    </p>
-
-                </div>
-
+            <article>
 
                 <a
                     href="./product.html?id=cheese-melt"
-                    class="mt-4 inline-flex font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#C7352D]"
+                    class="group block"
                 >
-                    View burger →
+
+                    <div
+                        class="relative aspect-[4/4.6] overflow-hidden rounded-[8px] bg-[#E8DED0]"
+                    >
+
+                        <div
+                            class="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
+                            style="background-image: url('./assets/images/products/cheese-melt.jpg'); background-size: cover; background-position: center;"
+                        ></div>
+
+                        <div class="absolute left-3 top-3 rounded-[3px] bg-[#C7352D] px-3 py-2">
+
+                            <span class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-white">
+                                Bestseller
+                            </span>
+
+                        </div>
+
+                    </div>
+
                 </a>
 
-            </div>
 
-        </article>
+                <div class="pt-4">
 
+                    <div class="flex items-start justify-between gap-4">
 
-        <!-- 02 — SMOKE BOMB -->
+                        <div>
 
-        <article>
+                            <p class="font-heading text-2xl font-900 uppercase leading-none">
+                                Cheese Melt
+                            </p>
 
-            <a href="./product.html?id=smoke-bomb" class="block">
+                            <p class="mt-2 font-body text-xs leading-5 text-[#211A16]/55">
+                                Crispy edges, melted cheddar, Pro Sauce.
+                            </p>
 
-                <div
-                    class="relative aspect-[4/4.6] overflow-hidden rounded-[8px] bg-[#E8DED0]"
-                    style="background-image: url('./assets/images/products/smoke-bomb.jpg'); background-size: cover; background-position: center;"
-                >
+                        </div>
 
-                    <div class="absolute left-3 top-3 rounded-[3px] bg-[#211A16] px-3 py-2">
-
-                        <span class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-white">
-                            Hot Pick
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-            <div class="pt-4">
-
-                <div class="flex items-start justify-between gap-4">
-
-                    <div>
-
-                        <p class="font-heading text-2xl font-900 uppercase leading-none">
-                            Smoke Bomb
-                        </p>
-
-                        <p class="mt-2 font-body text-xs leading-5 text-[#211A16]/55">
-                            Smoky heat, melted cheese, serious kick.
+                        <p class="whitespace-nowrap font-body text-sm font-bold">
+                            Rs. 1,350
                         </p>
 
                     </div>
 
-                    <p class="whitespace-nowrap font-body text-sm font-bold">
-                        Rs. 1,390
-                    </p>
+
+                    <a
+                        href="./product.html?id=cheese-melt"
+                        class="mt-4 inline-flex font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#C7352D]"
+                    >
+                        View burger →
+                    </a>
 
                 </div>
 
+            </article>
+
+
+
+            <!-- SMOKE BOMB -->
+
+            <article>
 
                 <a
                     href="./product.html?id=smoke-bomb"
-                    class="mt-4 inline-flex font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#C7352D]"
+                    class="group block"
                 >
-                    View burger →
+
+                    <div
+                        class="relative aspect-[4/4.6] overflow-hidden rounded-[8px] bg-[#E8DED0]"
+                    >
+
+                        <div
+                            class="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
+                            style="background-image: url('./assets/images/products/smoke-bomb.jpg'); background-size: cover; background-position: center;"
+                        ></div>
+
+                        <div class="absolute left-3 top-3 rounded-[3px] bg-[#211A16] px-3 py-2">
+
+                            <span class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-white">
+                                Hot Pick
+                            </span>
+
+                        </div>
+
+                    </div>
+
                 </a>
 
-            </div>
 
-        </article>
+                <div class="pt-4">
 
+                    <div class="flex items-start justify-between gap-4">
 
-        <!-- 03 — DOUBLE STACK -->
+                        <div>
 
-        <article>
+                            <p class="font-heading text-2xl font-900 uppercase leading-none">
+                                Smoke Bomb
+                            </p>
 
-            <a href="./product.html?id=double-stack" class="block">
+                            <p class="mt-2 font-body text-xs leading-5 text-[#211A16]/55">
+                                Smoky heat, melted cheese, serious kick.
+                            </p>
 
-                <div
-                    class="relative aspect-[4/4.6] overflow-hidden rounded-[8px] bg-[#E8DED0]"
-                    style="background-image: url('./assets/images/products/double-stack.jpg'); background-size: cover; background-position: center;"
-                >
+                        </div>
 
-                    <div class="absolute left-3 top-3 rounded-[3px] bg-[#C7352D] px-3 py-2">
-
-                        <span class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-white">
-                            Bestseller
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-            <div class="pt-4">
-
-                <div class="flex items-start justify-between gap-4">
-
-                    <div>
-
-                        <p class="font-heading text-2xl font-900 uppercase leading-none">
-                            Double Stack
-                        </p>
-
-                        <p class="mt-2 font-body text-xs leading-5 text-[#211A16]/55">
-                            Two patties. Double cheese. Zero regrets.
+                        <p class="whitespace-nowrap font-body text-sm font-bold">
+                            Rs. 1,390
                         </p>
 
                     </div>
 
-                    <p class="whitespace-nowrap font-body text-sm font-bold">
-                        Rs. 1,590
-                    </p>
+
+                    <a
+                        href="./product.html?id=smoke-bomb"
+                        class="mt-4 inline-flex font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#C7352D]"
+                    >
+                        View burger →
+                    </a>
 
                 </div>
 
+            </article>
+
+
+
+            <!-- DOUBLE STACK -->
+
+            <article>
 
                 <a
                     href="./product.html?id=double-stack"
-                    class="mt-4 inline-flex font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#C7352D]"
+                    class="group block"
                 >
-                    View burger →
+
+                    <div
+                        class="relative aspect-[4/4.6] overflow-hidden rounded-[8px] bg-[#E8DED0]"
+                    >
+
+                        <div
+                            class="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
+                            style="background-image: url('./assets/images/products/double-stack.jpg'); background-size: cover; background-position: center;"
+                        ></div>
+
+                        <div class="absolute left-3 top-3 rounded-[3px] bg-[#C7352D] px-3 py-2">
+
+                            <span class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-white">
+                                Bestseller
+                            </span>
+
+                        </div>
+
+                    </div>
+
                 </a>
 
-            </div>
 
-        </article>
+                <div class="pt-4">
 
+                    <div class="flex items-start justify-between gap-4">
 
-        <!-- 04 — CRISPY PRO -->
+                        <div>
 
-        <article>
+                            <p class="font-heading text-2xl font-900 uppercase leading-none">
+                                Double Stack
+                            </p>
 
-            <a href="./product.html?id=crispy-pro" class="block">
+                            <p class="mt-2 font-body text-xs leading-5 text-[#211A16]/55">
+                                Two patties. Double cheese. Zero regrets.
+                            </p>
 
-                <div
-                    class="relative aspect-[4/4.6] overflow-hidden rounded-[8px] bg-[#E8DED0]"
-                    style="background-image: url('./assets/images/products/crispy-pro.jpg'); background-size: cover; background-position: center;"
-                >
+                        </div>
 
-                    <div class="absolute left-3 top-3 rounded-[3px] bg-[#211A16] px-3 py-2">
-
-                        <span class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-white">
-                            Bestseller
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </a>
-
-
-            <div class="pt-4">
-
-                <div class="flex items-start justify-between gap-4">
-
-                    <div>
-
-                        <p class="font-heading text-2xl font-900 uppercase leading-none">
-                            Crispy Pro
-                        </p>
-
-                        <p class="mt-2 font-body text-xs leading-5 text-[#211A16]/55">
-                            Crunchy chicken, cool sauce, toasted bun.
+                        <p class="whitespace-nowrap font-body text-sm font-bold">
+                            Rs. 1,590
                         </p>
 
                     </div>
 
-                    <p class="whitespace-nowrap font-body text-sm font-bold">
-                        Rs. 899
-                    </p>
+
+                    <a
+                        href="./product.html?id=double-stack"
+                        class="mt-4 inline-flex font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#C7352D]"
+                    >
+                        View burger →
+                    </a>
 
                 </div>
 
+            </article>
+
+
+
+            <!-- CRISPY PRO -->
+
+            <article>
 
                 <a
                     href="./product.html?id=crispy-pro"
-                    class="mt-4 inline-flex font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#C7352D]"
+                    class="group block"
                 >
-                    View burger →
+
+                    <div
+                        class="relative aspect-[4/4.6] overflow-hidden rounded-[8px] bg-[#E8DED0]"
+                    >
+
+                        <div
+                            class="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
+                            style="background-image: url('./assets/images/products/crispy-pro.jpg'); background-size: cover; background-position: center;"
+                        ></div>
+
+                        <div class="absolute left-3 top-3 rounded-[3px] bg-[#211A16] px-3 py-2">
+
+                            <span class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-white">
+                                Bestseller
+                            </span>
+
+                        </div>
+
+                    </div>
+
                 </a>
 
-            </div>
 
-        </article>
+                <div class="pt-4">
+
+                    <div class="flex items-start justify-between gap-4">
+
+                        <div>
+
+                            <p class="font-heading text-2xl font-900 uppercase leading-none">
+                                Crispy Pro
+                            </p>
+
+                            <p class="mt-2 font-body text-xs leading-5 text-[#211A16]/55">
+                                Crunchy chicken, cool sauce, toasted bun.
+                            </p>
+
+                        </div>
+
+                        <p class="whitespace-nowrap font-body text-sm font-bold">
+                            Rs. 899
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="./product.html?id=crispy-pro"
+                        class="mt-4 inline-flex font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#C7352D]"
+                    >
+                        View burger →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
 
     </div>
 
-</div>
-
 </section>
 
+
+
 <!-- =========================================================
-     BRAND EDITORIAL
+     BRAND STORY
 ========================================================= -->
 
 <section class="overflow-hidden bg-[#211A16] text-[#F7F2E9]">
 
-
-<div class="mx-auto grid max-w-[1280px] lg:grid-cols-[0.8fr_1.2fr]">
-
-    <div class="flex flex-col justify-center px-5 py-20 lg:px-8 lg:py-28">
-
-        <p class="mb-6 font-body text-[10px] font-bold uppercase tracking-[0.22em] text-[#E5A93A]">
-            The Pro Bun way
-        </p>
-
-        <h2 class="max-w-[550px] font-heading text-6xl font-900 uppercase leading-[0.88] tracking-[-0.03em] sm:text-8xl">
-
-            Good food
-            <br>
-            needs
-            <br>
-            <span class="text-[#C7352D]">no excuse.</span>
-
-        </h2>
-
-        <p class="mt-8 max-w-[430px] font-body text-sm leading-7 text-[#F7F2E9]/55">
-
-            We keep the menu tight and the standards high.
-            Proper ingredients, big portions and sauces worth
-            ordering extra for.
-
-        </p>
-
-        <div class="mt-9">
-
-            <a
-                href="./about.html"
-                class="inline-flex rounded-[4px] border border-[#F7F2E9]/30 px-6 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:bg-[#F7F2E9] hover:text-[#211A16]"
-            >
-                Our Story
-            </a>
-
-        </div>
-
-    </div>
+    <div class="mx-auto grid max-w-[1280px] lg:grid-cols-[0.8fr_1.2fr]">
 
 
-    <div class="relative min-h-[540px] overflow-hidden rounded-l-[10px] bg-[#3A2D27]">
+        <div class="flex flex-col justify-center px-5 py-20 lg:px-8 lg:py-28">
 
-        <div
-            class="absolute inset-0"
-            style="background-image: url('./assets/images/brand/pro-bun-story.webp'); background-size: cover; background-position: center;"
-        ></div>
-
-        
-
-        <div class="absolute left-7 top-7">
-
-            <p class="font-body text-[9px] font-bold uppercase tracking-[0.25em] text-white/60">
-                Built around the burger
+            <p class="mb-6 font-body text-[10px] font-bold uppercase tracking-[0.22em] text-[#E5A93A]">
+                The Pro Bun way
             </p>
 
+            <h2 class="max-w-[550px] font-heading text-6xl font-900 uppercase leading-[0.88] tracking-[-0.03em] sm:text-8xl">
+
+                Good food
+
+                <br>
+
+                needs
+
+                <br>
+
+                <span class="text-[#C7352D]">
+                    no excuse.
+                </span>
+
+            </h2>
+
+
+            <p class="mt-8 max-w-[430px] font-body text-sm leading-7 text-[#F7F2E9]/55">
+
+                We keep the menu tight and the standards high.
+                Proper ingredients, big portions and sauces worth
+                ordering extra for.
+
+            </p>
+
+
+            <div class="mt-9">
+
+                <a
+                    href="./about.html"
+                    class="inline-flex rounded-[4px] border border-[#F7F2E9]/30 px-6 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:bg-[#F7F2E9] hover:text-[#211A16]"
+                >
+                    Our Story
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="relative min-h-[540px] overflow-hidden rounded-l-[10px] bg-[#3A2D27]">
+
+            <div
+                class="absolute inset-0"
+                style="background-image: url('./assets/images/brand/pro-bun-story.webp'); background-size: cover; background-position: center;"
+            ></div>
+
+            <div class="absolute inset-0 bg-gradient-to-t from-[#211A16]/30 to-transparent"></div>
+
+            <div class="absolute left-7 top-7">
+
+                <p class="font-body text-[9px] font-bold uppercase tracking-[0.25em] text-white/60">
+                    Built around the burger
+                </p>
+
+            </div>
+
         </div>
 
     </div>
 
-</div>
-
 </section>
+
+
 
 <!-- =========================================================
      SIGNATURE BURGER
@@ -689,104 +809,106 @@
 
 <section class="bg-[#F7F2E9]">
 
+    <div class="mx-auto grid max-w-[1280px] items-center gap-10 px-5 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 lg:px-8 lg:py-28">
 
-<div class="mx-auto grid max-w-[1280px] items-center gap-10 px-5 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 lg:px-8 lg:py-28">
 
-    <div class="relative">
+        <div class="relative">
 
-        <div
-            class="aspect-[1/0.92] overflow-hidden rounded-[10px] bg-[#E8DED0]"
-            style="background-image: url('./assets/images/products/smash-pro-feature.jpg'); background-size: cover; background-position: center;"
-        >
+            <div
+                class="aspect-[1/0.92] overflow-hidden rounded-[10px] bg-[#E8DED0]"
+                style="background-image: url('./assets/images/products/smash-pro-feature.jpg'); background-size: cover; background-position: center;"
+            >
+            </div>
+
+
+            <div class="absolute bottom-[-18px] right-[-8px] rounded-[4px] bg-[#C7352D] px-5 py-4 text-white sm:right-[-20px]">
+
+                <p class="font-body text-[9px] font-bold uppercase tracking-[0.16em]">
+                    Signature
+                </p>
+
+            </div>
 
         </div>
 
 
-        <div class="absolute bottom-[-18px] right-[-8px] rounded-[4px] bg-[#C7352D] px-5 py-4 text-white sm:right-[-20px]">
+        <div class="pt-8 lg:pt-0">
 
-            <p class="font-body text-[9px] font-bold uppercase tracking-[0.16em]">
-                Signature
+            <p class="mb-4 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#C7352D]">
+                Our signature burger
             </p>
+
+            <h2 class="font-heading text-6xl font-900 uppercase leading-[0.88] tracking-[-0.03em] sm:text-8xl">
+
+                Smash
+
+                <br>
+
+                Pro<span class="text-[#C7352D]">.</span>
+
+            </h2>
+
+
+            <div class="mt-7 flex items-center gap-4">
+
+                <span class="font-body text-sm font-bold">
+                    ★ 4.9
+                </span>
+
+                <span class="h-4 w-px bg-[#211A16]/20"></span>
+
+                <span class="font-body text-sm font-bold">
+                    Rs. 1,290
+                </span>
+
+            </div>
+
+
+            <p class="mt-6 max-w-[500px] font-body text-sm leading-7 text-[#211A16]/60">
+
+                Our answer to the question: what if a burger was
+                ridiculously satisfying? Crispy smashed beef,
+                melted cheddar, pickles and our signature Pro Sauce
+                inside a toasted brioche bun.
+
+            </p>
+
+
+            <div class="mt-8 grid grid-cols-2 gap-y-3 border-y border-[#211A16]/10 py-6">
+
+                <p class="font-body text-[10px] font-bold uppercase tracking-[0.12em]">
+                    Beef Patty
+                </p>
+
+                <p class="font-body text-[10px] font-bold uppercase tracking-[0.12em]">
+                    Cheddar
+                </p>
+
+                <p class="font-body text-[10px] font-bold uppercase tracking-[0.12em]">
+                    Pickles
+                </p>
+
+                <p class="font-body text-[10px] font-bold uppercase tracking-[0.12em]">
+                    Pro Sauce
+                </p>
+
+            </div>
+
+
+            <a
+                href="./product.html?id=smash-pro"
+                class="mt-8 inline-flex rounded-[4px] bg-[#211A16] px-7 py-4 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-[#C7352D]"
+            >
+                View Smash Pro
+            </a>
 
         </div>
 
     </div>
-
-
-    <div class="pt-8 lg:pt-0">
-
-        <p class="mb-4 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#C7352D]">
-            Our signature burger
-        </p>
-
-        <h2 class="font-heading text-6xl font-900 uppercase leading-[0.88] tracking-[-0.03em] sm:text-8xl">
-
-            Smash
-            <br>
-            Pro<span class="text-[#C7352D]">.</span>
-
-        </h2>
-
-
-        <div class="mt-7 flex items-center gap-4">
-
-            <span class="font-body text-sm font-bold">
-                ★ 4.9
-            </span>
-
-            <span class="h-4 w-px bg-[#211A16]/20"></span>
-
-            <span class="font-body text-sm font-bold">
-                Rs. 1,290
-            </span>
-
-        </div>
-
-
-        <p class="mt-6 max-w-[500px] font-body text-sm leading-7 text-[#211A16]/60">
-
-            Our answer to the question: what if a burger was
-            ridiculously satisfying? Crispy smashed beef,
-            melted cheddar, pickles and our signature Pro Sauce
-            inside a toasted brioche bun.
-
-        </p>
-
-
-        <div class="mt-8 grid grid-cols-2 gap-y-3 border-y border-[#211A16]/10 py-6">
-
-            <p class="font-body text-[10px] font-bold uppercase tracking-[0.12em]">
-                Beef Patty
-            </p>
-
-            <p class="font-body text-[10px] font-bold uppercase tracking-[0.12em]">
-                Cheddar
-            </p>
-
-            <p class="font-body text-[10px] font-bold uppercase tracking-[0.12em]">
-                Pickles
-            </p>
-
-            <p class="font-body text-[10px] font-bold uppercase tracking-[0.12em]">
-                Pro Sauce
-            </p>
-
-        </div>
-
-
-        <a
-            href="./product.html?id=smash-pro"
-            class="mt-8 inline-flex rounded-[4px] bg-[#211A16] px-7 py-4 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-[#C7352D]"
-        >
-            View Smash Pro
-        </a>
-
-    </div>
-
-</div>
-
 
 </section>
+
+
 
 <!-- =========================================================
      DEAL SECTION
@@ -794,248 +916,256 @@
 
 <section class="bg-[#C7352D] text-white">
 
+    <div class="mx-auto grid max-w-[1280px] items-center gap-12 px-5 py-16 lg:grid-cols-[1fr_0.8fr] lg:px-8 lg:py-20">
 
-<div class="mx-auto grid max-w-[1280px] items-center gap-12 px-5 py-16 lg:grid-cols-[1fr_0.8fr] lg:px-8 lg:py-20">
 
-    <div>
+        <div>
 
-        <p class="mb-5 font-body text-[10px] font-bold uppercase tracking-[0.22em] text-white/65">
-            Feed the table
-        </p>
+            <p class="mb-5 font-body text-[10px] font-bold uppercase tracking-[0.22em] text-white/65">
+                Feed the table
+            </p>
 
-        <h2 class="max-w-[700px] font-heading text-6xl font-900 uppercase leading-[0.86] tracking-[-0.03em] sm:text-8xl">
+            <h2 class="max-w-[700px] font-heading text-6xl font-900 uppercase leading-[0.86] tracking-[-0.03em] sm:text-8xl">
 
-            More bun.
-            <br>
-            More value<span class="text-[#E5A93A]">.</span>
+                More bun.
 
-        </h2>
+                <br>
 
-        <p class="mt-7 max-w-[470px] font-body text-sm leading-7 text-white/75">
+                More value<span class="text-[#E5A93A]">.</span>
 
-            One table. One order. Everyone gets something they actually want.
-            Pick your crew's favorite and make it a meal.
+            </h2>
 
-        </p>
 
-        <a
-            href="./menu.html?category=deals"
-            class="mt-8 inline-flex rounded-[4px] bg-white px-7 py-4 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#211A16] transition-colors hover:bg-[#E5A93A]"
-        >
-            Explore Deals
-        </a>
+            <p class="mt-7 max-w-[470px] font-body text-sm leading-7 text-white/75">
+
+                One table. One order. Everyone gets something they actually want.
+                Pick your crew's favorite and make it a meal.
+
+            </p>
+
+
+            <a
+                href="./menu.html?category=deals"
+                class="mt-8 inline-flex rounded-[4px] bg-white px-7 py-4 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#211A16] transition-colors hover:bg-[#E5A93A]"
+            >
+                Explore Deals
+            </a>
+
+        </div>
+
+
+        <div class="rounded-[10px] bg-[#211A16] p-6 sm:p-8">
+
+            <div class="flex items-start justify-between">
+
+                <div>
+
+                    <p class="font-body text-[9px] font-bold uppercase tracking-[0.2em] text-[#F7F2E9]/45">
+                        Featured deal
+                    </p>
+
+                    <h3 class="mt-3 font-heading text-4xl font-900 uppercase leading-none">
+                        Pro Meal
+                    </h3>
+
+                </div>
+
+                <span class="rounded-[3px] bg-[#E5A93A] px-3 py-2 font-body text-[9px] font-bold uppercase tracking-[0.12em] text-[#211A16]">
+                    Save
+                </span>
+
+            </div>
+
+
+            <div
+                
+                class="mt-8 aspect-[1.5/1] overflow-hidden rounded-[6px] bg-[#3A2D27]"
+                style="background-image: url('./assets/images/products/pro-meal.png'); background-size: cover; background-position: center;"
+            >
+            </div>
+
+
+            <div class="mt-6 flex items-end justify-between">
+
+                <div>
+
+                    <p class="font-body text-xs text-[#F7F2E9]/50">
+                        Burger + fries + drink
+                    </p>
+
+                    <p class="mt-2 font-heading text-3xl font-900">
+                        Rs. 1,599
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="./menu.html?category=deals"
+                    class="rounded-[4px] bg-[#C7352D] px-4 py-3 font-body text-[9px] font-bold uppercase tracking-[0.12em] text-white"
+                >
+                    Get Deal
+                </a>
+
+            </div>
+
+        </div>
 
     </div>
 
+</section>
 
-    <div class="rounded-[10px] bg-[#211A16] p-6 sm:p-8">
 
-        <div class="flex items-start justify-between">
 
-            <div>
+<!-- =========================================================
+     CATEGORIES
+========================================================= -->
 
-                <p class="font-body text-[9px] font-bold uppercase tracking-[0.2em] text-[#F7F2E9]/45">
-                    Featured deal
-                </p>
+<section class="bg-[#F7F2E9]">
 
-                <h3 class="mt-3 font-heading text-4xl font-900 uppercase leading-none">
-                    Pro Meal
-                </h3>
+    <div class="mx-auto max-w-[1280px] px-5 py-20 lg:px-8 lg:py-28">
 
-            </div>
 
-            <span class="rounded-[3px] bg-[#E5A93A] px-3 py-2 font-body text-[9px] font-bold uppercase tracking-[0.12em] text-[#211A16]">
-                Save
-            </span>
+        <div class="mb-12">
+
+            <p class="mb-3 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#C7352D]">
+                Pick your mood
+            </p>
+
+            <h2 class="font-heading text-5xl font-900 uppercase leading-[0.88] tracking-[-0.03em] sm:text-7xl">
+
+                Beyond
+
+                <br>
+
+                The Bun<span class="text-[#C7352D]">.</span>
+
+            </h2>
 
         </div>
 
 
-        <div
-            class="mt-8 aspect-[1.5/1] overflow-hidden rounded-[6px] bg-[#3A2D27]"
-            style="background-image: url('./assets/images/products/pro-meal.png'); background-size: cover; background-position: center;"
-        >
-
-        </div>
+        <div class="grid gap-5 md:grid-cols-3">
 
 
-        <div class="mt-6 flex items-end justify-between">
-
-            <div>
-
-                <p class="font-body text-xs text-[#F7F2E9]/50">
-                    Burger + fries + drink
-                </p>
-
-                <p class="mt-2 font-heading text-3xl font-900">
-                    Rs. 1,590
-                </p>
-
-            </div>
+            <!-- CHICKEN -->
 
             <a
-                href="./product.html?id=pro-meal"
-                class="font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#E5A93A]"
+                href="./menu.html?category=chicken"
+                class="group block"
             >
-                Get it →
+
+                <div class="relative aspect-[4/5] overflow-hidden rounded-[8px] bg-[#D8CFC2]">
+
+                    <div
+                        class="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
+                        style="background-image: url('./assets/images/categories/chicken.jpg'); background-size: cover; background-position: center;"
+                    ></div>
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#211A16]/70 via-transparent to-transparent"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+
+                        <p class="font-body text-[9px] font-bold uppercase tracking-[0.18em] text-white/60">
+                            04 items
+                        </p>
+
+                        <h3 class="mt-2 font-heading text-4xl font-900 uppercase text-white">
+                            Chicken
+                        </h3>
+
+                        <p class="mt-3 font-body text-[10px] font-bold uppercase tracking-[0.14em] text-[#E5A93A]">
+                            Explore →
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- FRIES -->
+
+            <a
+                href="./menu.html?category=fries"
+                class="group block"
+            >
+
+                <div class="relative aspect-[4/5] overflow-hidden rounded-[8px] bg-[#D8CFC2]">
+
+                    <div
+                        class="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
+                        style="background-image: url('./assets/images/products/fries.jpg'); background-size: cover; background-position: center;"
+                    ></div>
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#211A16]/70 via-transparent to-transparent"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+
+                        <p class="font-body text-[9px] font-bold uppercase tracking-[0.18em] text-white/60">
+                            04 items
+                        </p>
+
+                        <h3 class="mt-2 font-heading text-4xl font-900 uppercase text-white">
+                            Fries
+                        </h3>
+
+                        <p class="mt-3 font-body text-[10px] font-bold uppercase tracking-[0.14em] text-[#E5A93A]">
+                            Explore →
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- DRINKS -->
+
+            <a
+                href="./menu.html?category=drinks"
+                class="group block"
+            >
+
+                <div class="relative aspect-[4/5] overflow-hidden rounded-[8px] bg-[#D8CFC2]">
+
+                    <div
+                        class="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
+                        style="background-image: url('./assets/images/categories/drinks.png'); background-size: cover; background-position: center;"
+                    ></div>
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#211A16]/70 via-transparent to-transparent"></div>
+
+                    <div class="absolute bottom-0 left-0 right-0 p-6">
+
+                        <p class="font-body text-[9px] font-bold uppercase tracking-[0.18em] text-white/60">
+                            03 items
+                        </p>
+
+                        <h3 class="mt-2 font-heading text-4xl font-900 uppercase text-white">
+                            Drinks
+                        </h3>
+
+                        <p class="mt-3 font-body text-[10px] font-bold uppercase tracking-[0.14em] text-[#E5A93A]">
+                            Explore →
+                        </p>
+
+                    </div>
+
+                </div>
+
             </a>
 
         </div>
 
     </div>
 
-</div>
-
-
 </section>
 
-<!-- =========================================================
-     BEYOND THE BUN
-========================================================= -->
-
-<section class="bg-[#F7F2E9]">
-
-
-<div class="mx-auto max-w-[1280px] px-5 py-20 lg:px-8 lg:py-28">
-
-    <div class="mb-12">
-
-        <p class="mb-3 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#C7352D]">
-            Not just burgers
-        </p>
-
-        <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-
-            <h2 class="font-heading text-5xl font-900 uppercase leading-[0.88] tracking-[-0.03em] sm:text-7xl">
-
-                Beyond
-                <br>
-                The Bun<span class="text-[#C7352D]">.</span>
-
-            </h2>
-
-            <p class="max-w-[360px] font-body text-sm leading-6 text-[#211A16]/55">
-
-                Crispy sides, cold drinks and chicken worth
-                getting your hands messy for.
-
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="grid gap-5 md:grid-cols-3">
-
-
-        <!-- CHICKEN -->
-
-        <a href="./menu.html?category=chicken" class="group block">
-
-            <div class="relative aspect-[4/5] overflow-hidden rounded-[8px] bg-[#D8CFC2]">
-
-                <div
-                    class="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
-                    style="background-image: url('./assets/images/categories/chicken.jpg'); background-size: cover; background-position: center;"
-                ></div>
-
-                <div class="absolute inset-0 bg-gradient-to-t from-[#211A16]/70 via-transparent to-transparent"></div>
-
-                <div class="absolute bottom-0 left-0 right-0 p-6">
-
-                    <p class="font-body text-[9px] font-bold uppercase tracking-[0.18em] text-white/60">
-                        04 items
-                    </p>
-
-                    <h3 class="mt-2 font-heading text-4xl font-900 uppercase text-white">
-                        Chicken
-                    </h3>
-
-                    <p class="mt-3 font-body text-[10px] font-bold uppercase tracking-[0.14em] text-[#E5A93A]">
-                        Explore →
-                    </p>
-
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <!-- FRIES -->
-
-        <a href="./menu.html?category=fries" class="group block">
-
-            <div class="relative aspect-[4/5] overflow-hidden rounded-[8px] bg-[#D8CFC2]">
-
-                <div
-                    class="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
-                    style="background-image: url('./assets/images/categories/fries.jpg'); background-size: cover; background-position: center;"
-                ></div>
-
-                <div class="absolute inset-0 bg-gradient-to-t from-[#211A16]/70 via-transparent to-transparent"></div>
-
-                <div class="absolute bottom-0 left-0 right-0 p-6">
-
-                    <p class="font-body text-[9px] font-bold uppercase tracking-[0.18em] text-white/60">
-                        04 items
-                    </p>
-
-                    <h3 class="mt-2 font-heading text-4xl font-900 uppercase text-white">
-                        Fries
-                    </h3>
-
-                    <p class="mt-3 font-body text-[10px] font-bold uppercase tracking-[0.14em] text-[#E5A93A]">
-                        Explore →
-                    </p>
-
-                </div>
-
-            </div>
-
-        </a>
-
-
-        <!-- DRINKS -->
-
-        <a href="./menu.html?category=drinks" class="group block">
-
-            <div class="relative aspect-[4/5] overflow-hidden rounded-[8px] bg-[#D8CFC2]">
-
-                <div
-                    class="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
-                    style="background-image: url('./assets/images/categories/drinks.png'); background-size: cover; background-position: center;"
-                ></div>
-
-                <div class="absolute inset-0 bg-gradient-to-t from-[#211A16]/70 via-transparent to-transparent"></div>
-
-                <div class="absolute bottom-0 left-0 right-0 p-6">
-
-                    <p class="font-body text-[9px] font-bold uppercase tracking-[0.18em] text-white/60">
-                        03 items
-                    </p>
-
-                    <h3 class="mt-2 font-heading text-4xl font-900 uppercase text-white">
-                        Drinks
-                    </h3>
-
-                    <p class="mt-3 font-body text-[10px] font-bold uppercase tracking-[0.14em] text-[#E5A93A]">
-                        Explore →
-                    </p>
-
-                </div>
-
-            </div>
-
-        </a>
-
-    </div>
-
-</div>
-
-
-</section>
 
 
 <!-- =========================================================
@@ -1048,59 +1178,82 @@
 
         <div class="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
 
-            <!-- LEFT -->
+
             <div>
+
                 <p class="mb-4 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#F7F2E9]">
                     Why Pro Bun
                 </p>
 
                 <h2 class="font-heading text-5xl font-900 uppercase leading-[0.88] tracking-[-0.03em] sm:text-7xl">
+
                     No
+
                     <br>
+
                     Shortcuts<span class="text-white">.</span>
+
                 </h2>
+
             </div>
 
 
-            <!-- RIGHT -->
             <div class="border-t border-[#211A16]/10">
 
-                <!-- FEATURE 01 -->
+
                 <div class="border-b border-[#211A16]/10 py-8 first:pt-0">
+
                     <h3 class="font-heading text-3xl font-900 uppercase">
                         Big Flavor
                     </h3>
 
-                    <p class="mt-2 max-w-[500px] font-body text-sm leading-6 text-[#F7F2E9]">
-                        Strong sauces, properly seasoned patties and ingredients
-                        that don't disappear under the bun.
+                    <p class="mt-3 max-w-[600px] font-body text-sm leading-7 text-white">
+                        Bold seasoning, proper sauces and ingredients that actually
+                        bring something to the burger.
                     </p>
+
                 </div>
 
 
-                <!-- FEATURE 02 -->
                 <div class="border-b border-[#211A16]/10 py-8">
+
                     <h3 class="font-heading text-3xl font-900 uppercase">
-                        Proper Ingredients
+                        Proper Portions
                     </h3>
 
-                    <p class="mt-2 max-w-[500px] font-body text-sm leading-6 text-[#F7F2E9]">
-                        Fresh toppings, toasted buns and crispy textures.
-                        Simple food done properly.
+                    <p class="mt-3 max-w-[600px] font-body text-sm leading-7 text-white">
+                        Generous burgers, loaded sides and meals designed to leave
+                        you properly satisfied.
                     </p>
+
                 </div>
 
 
-                <!-- FEATURE 03 -->
-                <div class="py-8">
+                <div class="border-b border-[#211A16]/10 py-8">
+
                     <h3 class="font-heading text-3xl font-900 uppercase">
-                        Made to Crave
+                        Freshly Built
                     </h3>
 
-                    <p class="mt-2 max-w-[500px] font-body text-sm leading-6 text-[#F7F2E9]">
-                        Every item is built around one simple goal:
-                        make the next bite better than the last.
+                    <p class="mt-3 max-w-[600px] font-body text-sm leading-7 text-white">
+                        Every order is built around the food, not around shortcuts.
+                        Toasted buns, crispy chicken and hot fries.
                     </p>
+
+                </div>
+
+
+                <div class="py-8">
+
+                    <h3 class="font-heading text-3xl font-900 uppercase">
+                        Zero Boring Bites
+                    </h3>
+
+                    <p class="mt-3 max-w-[600px] font-body text-sm leading-7 text-white">
+                        The menu stays focused so every item has a reason to be
+                        there.
+                    </p>
+
                 </div>
 
             </div>
@@ -1112,98 +1265,104 @@
 </section>
 
 
+
 <!-- =========================================================
-     TESTIMONIALS
+     CUSTOMER NOTES
 ========================================================= -->
 
 <section class="bg-[#211A16] text-[#F7F2E9]">
 
+    <div class="mx-auto max-w-[1280px] px-5 py-20 lg:px-8 lg:py-24">
 
-<div class="mx-auto max-w-[1280px] px-5 py-20 lg:px-8 lg:py-24">
 
-    <div class="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+        <div class="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
 
-        <div>
+            <div>
 
-            <p class="mb-3 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
-                Customer notes
+                <p class="mb-3 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
+                    Customer notes
+                </p>
+
+                <h2 class="font-heading text-5xl font-900 uppercase leading-none tracking-[-0.03em] sm:text-7xl">
+
+                    People
+
+                    <br>
+
+                    Talk<span class="text-[#C7352D]">.</span>
+
+                </h2>
+
+            </div>
+
+
+            <p class="max-w-[330px] font-body text-sm leading-6 text-[#F7F2E9]/45">
+                Good burgers tend to become conversation starters.
             </p>
-
-            <h2 class="font-heading text-5xl font-900 uppercase leading-none tracking-[-0.03em] sm:text-7xl">
-
-                People
-                <br>
-                Talk<span class="text-[#C7352D]">.</span>
-
-            </h2>
 
         </div>
 
-        <p class="max-w-[330px] font-body text-sm leading-6 text-[#F7F2E9]/45">
-            Good burgers tend to become conversation starters.
-        </p>
+
+        <div class="grid gap-5 md:grid-cols-3">
+
+
+            <article class="rounded-[6px] border border-[#F7F2E9]/15 p-6 sm:p-8">
+
+                <div class="font-body text-sm tracking-[0.15em] text-[#E5A93A]">
+                    ★★★★
+                </div>
+
+                <p class="mt-7 font-heading text-3xl font-900 uppercase leading-[1.05]">
+                    “The Cheese Melt is exactly what a burger should be. Creamy”
+                </p>
+
+                <p class="mt-8 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#F7F2E9]/40">
+                   ~ Haider Ali 
+                </p>
+
+            </article>
+
+
+            <article class="rounded-[6px] border border-[#F7F2E9]/15 p-6 sm:p-8">
+
+                <div class="font-body text-sm tracking-[0.15em] text-[#E5A93A]">
+                    ★★★★★
+                </div>
+
+                <p class="mt-7 font-heading text-3xl font-900 uppercase leading-[1.05]">
+                    “Crispy fries. Proper sauce. Nothing felt boring. Amazing ”
+                </p>
+
+                <p class="mt-8 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#F7F2E9]/40">
+                   ~ Ayesha
+                </p>
+
+            </article>
+
+
+            <article class="rounded-[6px] border border-[#F7F2E9]/15 p-6 sm:p-8">
+
+                <div class="font-body text-sm tracking-[0.15em] text-[#E5A93A]">
+                    ★★★★★
+                </div>
+
+                <p class="mt-7 font-heading text-3xl font-900 uppercase leading-[1.05]">
+                    “The kind of meal you finish before the conversation starts.”
+                </p>
+
+                <p class="mt-8 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#F7F2E9]/40">
+                   ~ Ibtasim
+                </p>
+
+            </article>
+
+        </div>
 
     </div>
-
-
-    <div class="grid gap-5 md:grid-cols-3">
-
-        <article class="rounded-[6px] border border-[#F7F2E9]/15 p-6 sm:p-8">
-
-            <div class="font-body text-sm tracking-[0.15em] text-[#E5A93A]">
-                ★★★★
-            </div>
-
-            <p class="mt-7 font-heading text-3xl font-900 uppercase leading-[1.05]">
-                “The Cheese Melt is exactly what a burger should be.”
-            </p>
-
-            <p class="mt-8 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#F7F2E9]/40">
-                Sample customer note
-            </p>
-
-        </article>
-
-
-        <article class="rounded-[6px] border border-[#F7F2E9]/15 p-6 sm:p-8">
-
-            <div class="font-body text-sm tracking-[0.15em] text-[#E5A93A]">
-                ★★★★★
-            </div>
-
-            <p class="mt-7 font-heading text-3xl font-900 uppercase leading-[1.05]">
-                “Crispy fries. Proper sauce. Nothing felt boring.”
-            </p>
-
-            <p class="mt-8 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#F7F2E9]/40">
-                Sample customer note
-            </p>
-
-        </article>
-
-
-        <article class="rounded-[6px] border border-[#F7F2E9]/15 p-6 sm:p-8">
-
-            <div class="font-body text-sm tracking-[0.15em] text-[#E5A93A]">
-                ★★★★★
-            </div>
-
-            <p class="mt-7 font-heading text-3xl font-900 uppercase leading-[1.05]">
-                “The kind of meal you finish before the conversation starts.”
-            </p>
-
-            <p class="mt-8 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#F7F2E9]/40">
-                Sample customer note
-            </p>
-
-        </article>
-
-    </div>
-
-</div>
-
 
 </section>
+
+
 
 <!-- =========================================================
      FINAL CTA
@@ -1211,56 +1370,60 @@
 
 <section class="bg-[#F7F2E9] px-5 py-12 lg:px-8 lg:py-16">
 
+    <div
+        class="relative mx-auto flex min-h-[470px] max-w-[1280px] items-end overflow-hidden rounded-[10px] bg-[#3A2D27]"
+        style="background-image: url('./assets/images/hero/final-cta.png'); background-size: cover; background-position: center;"
+    >
 
-<div
-    class="relative mx-auto flex min-h-[470px] max-w-[1280px] items-end overflow-hidden rounded-[10px] bg-[#3A2D27]"
-    style="background-image: url('./assets/images/hero/final-cta.png'); background-size: cover; background-position: center;"
->
-
-    <div class="absolute inset-0 bg-[#211A16]/55"></div>
-
-
-    <div class="relative z-10 max-w-[760px] p-7 sm:p-12 lg:p-16">
-
-        <p class="mb-5 font-body text-[10px] font-bold uppercase tracking-[0.22em] text-[#E5A93A]">
-            One last question
-        </p>
-
-        <h2 class="font-heading text-6xl font-900 uppercase leading-[0.85] tracking-[-0.03em] text-white sm:text-8xl">
-
-            Hungry
-            <br>
-            Yet<span class="text-[#C7352D]">?</span>
-
-        </h2>
+        <div class="absolute inset-0 bg-[#211A16]/55"></div>
 
 
-        <div class="mt-8 flex flex-wrap gap-3">
+        <div class="relative z-10 max-w-[760px] p-7 sm:p-12 lg:p-16">
 
-            <a
-                href="./menu.html"
-                class="inline-flex rounded-[4px] bg-[#C7352D] px-7 py-4 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-[#A92A24]"
-            >
-                Start Your Order
-            </a>
+            <p class="mb-5 font-body text-[10px] font-bold uppercase tracking-[0.22em] text-[#E5A93A]">
+                One last question
+            </p>
 
-            <a
-                href="./contact.html"
-                class="inline-flex rounded-[4px] border border-white/40 px-7 py-4 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-white hover:text-[#211A16]"
-            >
-                Find Us
-            </a>
+
+            <h2 class="font-heading text-6xl font-900 uppercase leading-[0.85] tracking-[-0.03em] text-white sm:text-8xl">
+
+                Hungry
+
+                <br>
+
+                Yet<span class="text-[#C7352D]">?</span>
+
+            </h2>
+
+
+            <div class="mt-8 flex flex-wrap gap-3">
+
+                <a
+                    href="./menu.html"
+                    class="inline-flex rounded-[4px] bg-[#C7352D] px-7 py-4 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-[#A92A24]"
+                >
+                    Start Your Order
+                </a>
+
+                <a
+                    href="./contact.html"
+                    class="inline-flex rounded-[4px] border border-white/40 px-7 py-4 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-white hover:text-[#211A16]"
+                >
+                    Find Us
+                </a>
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
-
-
 </section>
 
+
 </main>
+
+
 
 <!-- =========================================================
      FOOTER
@@ -1268,213 +1431,307 @@
 
 <footer class="bg-[#211A16] text-[#F7F2E9]">
 
-
-<div class="mx-auto max-w-[1280px] px-5 py-16 lg:px-8 lg:py-20">
-
-    <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_0.8fr_1fr]">
+    <div class="mx-auto max-w-[1280px] px-5 py-16 lg:px-8 lg:py-20">
 
 
-        <!-- FOOTER BRAND -->
+        <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_0.8fr_1fr]">
 
-        <div>
 
-            <a
-                href="./index.html"
-                aria-label="PRO BUN home"
-                class="block"
-            >
-                <img
-                    src="./assets/images/brand/pro-bun-logo.svg"
-                    alt="PRO BUN"
-                    class="h-auto w-[150px]"
+            <!-- FOOTER BRAND -->
+
+            <div>
+
+                <a
+                    href="./index.html"
+                    aria-label="PRO BUN home"
+                    class="block"
                 >
-            </a>
+
+                    <img
+                        src="./assets/images/brand/pro-bun-logo.svg"
+                        alt="PRO BUN"
+                        class="h-auto w-[150px]"
+                    >
+
+                </a>
 
 
-            <p class="mt-6 max-w-[320px] font-body text-sm leading-6 text-[#F7F2E9]/45">
+                <p class="mt-6 max-w-[320px] font-body text-sm leading-6 text-[#F7F2E9]/45">
 
-                Burgers, chicken, fries and drinks made for people
-                who take their cravings seriously.
+                    Burgers, chicken, fries and drinks made for people
+                    who take their cravings seriously.
+
+                </p>
+
+
+                <a
+                    href="./menu.html"
+                    class="mt-7 inline-flex rounded-[4px] border border-[#F7F2E9]/20 px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:bg-[#F7F2E9] hover:text-[#211A16]"
+                >
+                    Order Online
+                </a>
+
+            </div>
+
+
+
+            <!-- EXPLORE -->
+
+            <div>
+
+                <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
+                    Explore
+                </h3>
+
+
+                <div class="mt-6 space-y-4">
+
+                    <a
+                        href="./index.html"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Home
+                    </a>
+
+                    <a
+                        href="./menu.html"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Menu
+                    </a>
+
+                    <a
+                        href="./about.html"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Our Story
+                    </a>
+
+                    <a
+                        href="./contact.html"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MENU -->
+
+            <div>
+
+                <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
+                    Menu
+                </h3>
+
+
+                <div class="mt-6 space-y-4">
+
+                    <a
+                        href="./menu.html?category=burgers"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Burgers
+                    </a>
+
+                    <a
+                        href="./menu.html?category=chicken"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Chicken
+                    </a>
+
+                    <a
+                        href="./menu.html?category=fries"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Fries & Sides
+                    </a>
+
+                    <a
+                        href="./menu.html?category=drinks"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Drinks
+                    </a>
+
+                    <a
+                        href="./menu.html?category=deals"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Deals
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CONTACT -->
+
+            <div>
+
+                <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
+                    Get in touch
+                </h3>
+
+
+                <div class="mt-6 space-y-4">
+
+                    <p class="font-body text-xs leading-5 text-[#F7F2E9]/55">
+
+                        F7 Markaz Food Street
+                        <br>
+                        Islamabad, Pakistan
+
+                    </p>
+
+
+                    <a
+                        href="tel:+923000000000"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        +92 312 3456789
+                    </a>
+
+
+                    <a
+                        href="mailto:hello@probun.com"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        hello@probun.com
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FOOTER BOTTOM -->
+
+        <div class="mt-16 flex flex-col gap-6 border-t border-[#F7F2E9]/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+
+
+            <p class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-[#F7F2E9]/30">
+
+                © 2026 PRO BUN.
+                Made with &#10084;&#65039; by
+                <span class="text-[#E5A93A]">
+                    Saim Ishfaq
+                </span>.
 
             </p>
 
 
-            <a
-                href="./menu.html"
-                class="mt-7 inline-flex rounded-[4px] border border-[#F7F2E9]/20 px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:bg-[#F7F2E9] hover:text-[#211A16]"
-            >
-                Order Online
-            </a>
 
-        </div>
+            <!-- SOCIAL ICONS -->
+
+            <div class="flex gap-3">
 
 
-        <!-- EXPLORE -->
-
-        <div>
-
-            <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
-                Explore
-            </h3>
-
-            <div class="mt-6 space-y-4">
+                <!-- INSTAGRAM -->
 
                 <a
-                    href="./index.html"
-                    class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    href="#"
+                    aria-label="Instagram"
+                    class="flex h-10 w-10 items-center justify-center rounded-full border border-[#F7F2E9]/15 text-[#F7F2E9]/60 transition-all hover:border-[#C7352D] hover:bg-[#C7352D] hover:text-white"
                 >
-                    Home
+
+                    <i class="fa-brands fa-instagram text-sm"></i>
+
                 </a>
+
+
+                <!-- FACEBOOK -->
 
                 <a
-                    href="./menu.html"
-                    class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    href="#"
+                    aria-label="Facebook"
+                    class="flex h-10 w-10 items-center justify-center rounded-full border border-[#F7F2E9]/15 text-[#F7F2E9]/60 transition-all hover:border-[#C7352D] hover:bg-[#C7352D] hover:text-white"
                 >
-                    Menu
+
+                    <i class="fa-brands fa-facebook-f text-sm"></i>
+
                 </a>
+
+
+                <!-- TIKTOK -->
 
                 <a
-                    href="./about.html"
-                    class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    href="#"
+                    aria-label="TikTok"
+                    class="flex h-10 w-10 items-center justify-center rounded-full border border-[#F7F2E9]/15 text-[#F7F2E9]/60 transition-all hover:border-[#C7352D] hover:bg-[#C7352D] hover:text-white"
                 >
-                    Our Story
+
+                    <i class="fa-brands fa-tiktok text-sm"></i>
+
                 </a>
 
-                <a
-                    href="./contact.html"
-                    class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
-                >
-                    Contact
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- MENU -->
-
-        <div>
-
-            <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
-                Menu
-            </h3>
-
-            <div class="mt-6 space-y-4">
-
-                <a
-                    href="./menu.html?category=burgers"
-                    class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
-                >
-                    Burgers
-                </a>
-
-                <a
-                    href="./menu.html?category=chicken"
-                    class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
-                >
-                    Chicken
-                </a>
-
-                <a
-                    href="./menu.html?category=fries"
-                    class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
-                >
-                    Fries & Sides
-                </a>
-
-                <a
-                    href="./menu.html?category=drinks"
-                    class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
-                >
-                    Drinks
-                </a>
-
-                <a
-                    href="./menu.html?category=deals"
-                    class="block font-body text-xs font-bold text-[#F7F2E9]/55 transition-colors hover:text-white"
-                >
-                    Deals
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- CONTACT -->
-
-        <div>
-
-            <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
-                Get in touch
-            </h3>
-
-            <div class="mt-6 space-y-4">
-
-                <p class="font-body text-xs leading-5 text-[#F7F2E9]/55">
-                    F7 Markaz Food Street<br>
-                    Islamabad, Pakistan
-                </p>
-
-                <a
-                    href="tel:+923000000000"
-                    class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
-                >
-                    +92 312 3456789
-                </a>
-
-                <a
-                    href="mailto:hello@probun.com"
-                    class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
-                >
-                    hello@probun.com
-                </a>
 
             </div>
 
         </div>
 
     </div>
-
-
-    <div class="mt-16 flex flex-col gap-5 border-t border-[#F7F2E9]/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-
-        <p class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-[#F7F2E9]/30">
-            © 2026 PRO BUN. Made with &#10084;&#65039; by <span class="text-[#E5A93A]">Saim Ishfaq</span>.
-        </p>
-
-
-        <div class="flex gap-5">
-
-            <a
-                href="#"
-                class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-[#F7F2E9]/35 transition-colors hover:text-white"
-            >
-                Instagram
-            </a>
-
-            <a
-                href="#"
-                class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-[#F7F2E9]/35 transition-colors hover:text-white"
-            >
-                Facebook
-            </a>
-
-            <a
-                href="#"
-                class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-[#F7F2E9]/35 transition-colors hover:text-white"
-            >
-                TikTok
-            </a>
-
-        </div>
-
-    </div>
-
-</div>
 
 </footer>
 
+
+<script>
+(() => {
+    const initMobileMenu = () => {
+        const button = document.getElementById('mobileMenuButton');
+        const menu = document.getElementById('mobileMenu');
+        if (!button || !menu) return;
+
+        const setOpen = (open) => {
+            menu.classList.toggle('hidden', !open);
+            button.setAttribute('aria-expanded', String(open));
+            button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            button.innerHTML = open
+                ? '<i class="fa-solid fa-xmark text-sm" aria-hidden="true"></i>'
+                : '<i class="fa-solid fa-bars text-sm" aria-hidden="true"></i>';
+        };
+
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            setOpen(menu.classList.contains('hidden'));
+        });
+
+        menu.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => setOpen(false));
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') setOpen(false);
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) setOpen(false);
+        });
+
+        setOpen(false);
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMobileMenu, { once: true });
+    } else {
+        initMobileMenu();
+    }
+})();
+</script>
+<script src="./assets/js/cart-sync.js"></script>
+<script src="./assets/js/search.js"></script>
+
 </body>
+
 </html>

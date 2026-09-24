@@ -13,3 +13,142 @@
     --font-heading: "Bungee", sans-serif;
     --font-body: "Inter", sans-serif;
 }
+
+/* =========================================================
+   PRO BUN RESPONSIVE FOUNDATION
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    min-width: 320px;
+}
+
+/* Prevent media from causing horizontal overflow */
+img,
+svg,
+video,
+canvas,
+iframe {
+    max-width: 100%;
+}
+
+/* Better mobile text wrapping */
+@media (max-width: 639px) {
+
+    /* Large Bungee headings */
+    h1.font-heading {
+        font-size: clamp(2.75rem, 15vw, 4.75rem) !important;
+        line-height: 0.86 !important;
+    }
+
+    h2.font-heading {
+        font-size: clamp(2.25rem, 11vw, 4rem) !important;
+        line-height: 0.88 !important;
+    }
+
+    h3.font-heading {
+        font-size: clamp(1.75rem, 8vw, 2.75rem) !important;
+        line-height: 0.92 !important;
+    }
+
+    /* Avoid tiny announcement text */
+    .bg-\[\#211A16\] .text-\[5px\] {
+        font-size: 8px !important;
+    }
+
+    /* Mobile logo */
+    header img[alt="PRO BUN"] {
+        width: 105px !important;
+        height: auto;
+    }
+
+    /* Hero sections */
+    main section > div[class*="min-h-\[470px\]"] {
+        min-height: 340px !important;
+    }
+
+    main section > div[class*="min-h-\[420px\]"] {
+        min-height: 320px !important;
+    }
+
+    main section > div[class*="min-h-\[390px\]"] {
+        min-height: 300px !important;
+    }
+
+    main section > div[class*="min-h-\[360px\]"] {
+        min-height: 300px !important;
+    }
+
+    main section > div[class*="min-h-\[340px\]"] {
+        min-height: 280px !important;
+    }
+
+    /* Reduce excessive mobile section spacing */
+    main section > div {
+        scroll-margin-top: 70px;
+    }
+
+    /* Don't let long labels break the page width */
+    .whitespace-nowrap {
+        white-space: normal;
+    }
+
+    /* Buttons remain usable on small screens */
+    button,
+    a {
+        max-width: 100%;
+    }
+
+    /* Forms */
+    input,
+    textarea,
+    select {
+        max-width: 100%;
+    }
+
+    /* Product/cart action rows */
+    .action-button {
+        min-width: 0;
+    }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+
+    .px-5 {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    h1.font-heading {
+        font-size: clamp(2.5rem, 14vw, 4rem) !important;
+    }
+
+    h2.font-heading {
+        font-size: clamp(2.1rem, 10vw, 3.5rem) !important;
+    }
+
+    .gap-12 {
+        gap: 2rem !important;
+    }
+
+    .gap-10 {
+        gap: 1.75rem !important;
+    }
+}
+
+/* Tablet */
+@media (min-width: 640px) and (max-width: 1023px) {
+
+    h1.font-heading {
+        font-size: clamp(4rem, 9vw, 6.5rem) !important;
+    }
+
+    h2.font-heading {
+        font-size: clamp(3rem, 7vw, 5.5rem) !important;
+    }
+}

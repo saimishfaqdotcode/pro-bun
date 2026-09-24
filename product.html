@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Product | PRO BUN</title>
+
+    <meta
+        name="description"
+        content="View PRO BUN product details, choose your quantity and add your favorite item to the cart."
+    >
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+  href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+    <!-- Tailwind -->
+
+    <link
+        rel="stylesheet"
+        href="./dist/output.css"
+    >
+
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .product-image {
+            transform: scale(1);
+            transition: transform 700ms cubic-bezier(.2,.65,.2,1);
+        }
+
+        .product-image-wrap:hover .product-image {
+            transform: scale(1.045);
+        }
+
+        .thumb-active {
+            border-color: #C7352D !important;
+        }
+
+        .toast {
+            transform: translateY(18px);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 220ms ease;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .quantity-button:focus-visible,
+        .action-button:focus-visible,
+        .mobile-menu-link:focus-visible {
+            outline: 2px solid #C7352D;
+            outline-offset: 3px;
+        }
+
+    </style>
+
+</head>
+
+
+<body class="bg-[#F7F2E9] text-[#211A16] antialiased">
+
+
+<!-- =========================================================
+     ANNOUNCEMENT BAR
+========================================================= -->
+
+<div class="bg-[#211A16] text-[#F7F2E9]">
+
+    <div class="mx-auto flex min-h-7 max-w-[1280px] items-center justify-center px-4">
+
+        <p class="font-body text-[5px] font-bold uppercase tracking-[0.18em] sm:text-[10px]">
+            Free delivery on orders over Rs. 2,000
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="border-b border-[#211A16]/10 bg-[#F7F2E9]">
+
+    <nav class="mx-auto flex h-[55px] max-w-[1280px] items-center justify-between px-5 lg:px-8">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="./index.html"
+            aria-label="PRO BUN home"
+            class="block"
+        >
+<img
+    src="./assets/images/brand/pro-bun-logo.svg"
+    alt="PRO BUN"
+    class="h-auto w-[90px] sm:w-[100px] lg:w-[105px]"
+>
+
+        </a>
+
+
+
+        <!-- DESKTOP NAVIGATION -->
+
+        <div class="hidden items-center gap-9 lg:flex">
+
+            <a
+                href="./index.html"
+                class="font-body text-[12px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#C7352D]"
+            >
+                Home
+            </a>
+
+            <a
+                href="./menu.html"
+                class="font-body text-[12px] font-bold uppercase tracking-[0.12em] text-[#C7352D]"
+            >
+                Menu
+            </a>
+
+            <a
+                href="./about.html"
+                class="font-body text-[12px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#C7352D]"
+            >
+                Our Story
+            </a>
+
+            <a
+                href="./contact.html"
+                class="font-body text-[12px] font-bold uppercase tracking-[0.12em] transition-colors hover:text-[#C7352D]"
+            >
+                Contact
+            </a>
+
+        </div>
+
+
+
+        <!-- DESKTOP ACTIONS -->
+
+        <div class="hidden items-center gap-7 lg:flex">
+
+            <button
+                id="searchButton"
+                type="button"
+                aria-label="Search PRO BUN menu"
+                class="flex h-9 w-9 items-center justify-center rounded-[4px] border border-[#211A16]/10 transition-colors hover:border-[#C7352D] hover:text-[#C7352D]"
+            >
+                <i class="fa-solid fa-magnifying-glass text-[12px]" aria-hidden="true"></i>
+            </button>
+
+
+            <a
+                href="./cart.html"
+                aria-label="Shopping cart"
+                class="font-body text-[15px] font-bold transition-colors hover:text-[#C7352D]"
+            >
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span
+                    id="cartCountDesktop"
+                    class="ml-1 text-[10px] text-[#C7352D]"
+                >
+                    (0)
+                </span>
+
+            </a>
+
+
+            <a
+                href="./menu.html"
+                class="rounded-[4px] bg-[#C7352D] px-3 py-2 font-body text-[11px] font-bold uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#A92A24]"
+            >
+                Order Now
+            </a>
+
+        </div>
+
+
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+            id="mobileMenuButton"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            class="flex h-10 w-10 items-center justify-center rounded-[4px] border border-[#211A16]/20 lg:hidden"
+        >
+
+            <i class="fa-solid fa-bars text-sm"></i>
+
+        </button>
+
+    </nav>
+
+
+    <!-- MOBILE MENU -->
+
+    <div
+        id="mobileMenu"
+        class="hidden border-t border-[#211A16]/10 bg-[#F7F2E9] lg:hidden"
+    >
+
+        <div class="mx-auto max-w-[1280px] px-5 py-5">
+
+            <div class="grid gap-1">
+
+                <a
+                    href="./index.html"
+                    class="mobile-menu-link rounded-[4px] px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.12em] hover:bg-[#211A16] hover:text-white"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="./menu.html"
+                    class="mobile-menu-link rounded-[4px] bg-[#C7352D] px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.12em] text-white"
+                >
+                    Menu
+                </a>
+
+                <a
+                    href="./about.html"
+                    class="mobile-menu-link rounded-[4px] px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.12em] hover:bg-[#211A16] hover:text-white"
+                >
+                    Our Story
+                </a>
+
+                <a
+                    href="./contact.html"
+                    class="mobile-menu-link rounded-[4px] px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.12em] hover:bg-[#211A16] hover:text-white"
+                >
+                    Contact
+                </a>
+
+                <button
+    id="mobileSearchButton"
+    data-pro-search-trigger
+    type="button"
+    class="mobile-menu-link flex w-full items-center justify-between rounded-[4px] px-4 py-3 text-left font-body text-xs font-bold uppercase tracking-[0.12em] hover:bg-[#211A16] hover:text-white"
+>
+    <span>Search</span>
+    <i class="fa-solid fa-magnifying-glass text-[11px]" aria-hidden="true"></i>
+</button>
+
+                <a
+                    href="./cart.html"
+                    class="mobile-menu-link mt-2 rounded-[4px] border border-[#211A16]/15 px-4 py-3 font-body text-xs font-bold uppercase tracking-[0.12em]"
+                >
+                    Cart
+                    <span
+                        id="cartCountMobile"
+                        class="ml-1 text-[#C7352D]"
+                    >
+                        (0)
+                    </span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =========================================================
+     PRODUCT BREADCRUMB
+========================================================= -->
+
+<section class="border-b border-[#211A16]/10 bg-[#F7F2E9]">
+
+    <div class="mx-auto max-w-[1280px] px-5 py-5 lg:px-8">
+
+        <div class="flex items-center gap-2 overflow-hidden font-body text-[9px] font-bold uppercase tracking-[0.16em] text-[#211A16]/40">
+
+            <a
+                href="./index.html"
+                class="shrink-0 transition-colors hover:text-[#C7352D]"
+            >
+                Home
+            </a>
+
+            <span>/</span>
+
+            <a
+                href="./menu.html"
+                class="shrink-0 transition-colors hover:text-[#C7352D]"
+            >
+                Menu
+            </a>
+
+            <span>/</span>
+
+            <span
+                id="breadcrumbName"
+                class="truncate text-[#211A16]"
+            >
+                Product
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PRODUCT HERO
+========================================================= -->
+
+<section class="bg-[#F7F2E9]">
+
+    <div class="mx-auto max-w-[1280px] px-5 py-10 sm:py-14 lg:px-8 lg:py-20">
+
+        <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-16">
+
+
+            <!-- PRODUCT MEDIA -->
+
+            <div>
+
+                <div
+                    class="product-image-wrap relative overflow-hidden rounded-[10px] bg-[#E8DED0]"
+                >
+
+                    <div
+                        id="productMedia"
+                        class="relative aspect-square sm:aspect-[1.05/1] lg:aspect-[0.95/1]"
+                    >
+
+                        <!-- Filled by JavaScript -->
+
+                    </div>
+
+
+                    <!-- Product Badge -->
+
+                    <div
+                        id="productBadge"
+                        class="absolute left-4 top-4 hidden rounded-[3px] bg-[#C7352D] px-3 py-2"
+                    >
+
+                        <span
+                            id="badgeText"
+                            class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-white"
+                        >
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Image Note -->
+
+                <div class="mt-4 flex items-center justify-between gap-4">
+
+                    <p
+                        id="mediaNote"
+                        class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-[#211A16]/35"
+                    >
+                        PRO BUN / Product
+                    </p>
+
+                    <a
+                        href="./menu.html"
+                        class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-[#C7352D] underline decoration-[#C7352D] decoration-2 underline-offset-4"
+                    >
+                        Back to menu →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT INFORMATION -->
+
+            <div class="lg:pt-3">
+
+                <div class="flex items-center gap-3">
+
+                    <span class="h-px w-10 bg-[#C7352D]"></span>
+
+                    <p
+                        id="productCategory"
+                        class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#C7352D]"
+                    >
+                        Product
+                    </p>
+
+                </div>
+
+
+                <h1
+                    id="productName"
+                   class="mt-5 font-heading text-[clamp(2.75rem,12vw,4rem)] font-900 uppercase leading-[0.82] tracking-[-0.035em] sm:text-[86px]"
+                >
+                    Product.
+                </h1>
+
+
+                <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+
+                    <p
+                        id="productPrice"
+                        class="font-heading text-4xl font-900 uppercase"
+                    >
+                        Rs. 0
+                    </p>
+
+                    <span class="h-6 w-px bg-[#211A16]/15"></span>
+
+                    <p
+                        id="productTag"
+                        class="font-body text-[9px] font-bold uppercase tracking-[0.18em] text-[#211A16]/45"
+                    >
+                        Made for cravings
+                    </p>
+
+                </div>
+
+
+                <p
+                    id="productDescription"
+                    class="mt-7 max-w-[520px] font-body text-sm leading-7 text-[#211A16]/60"
+                >
+                    Loading product details...
+                </p>
+
+
+
+                <!-- PRODUCT DETAILS -->
+
+                <div class="mt-9 border-y border-[#211A16]/10">
+
+                    <div class="grid grid-cols-2">
+
+                        <div class="border-r border-[#211A16]/10 py-5 pr-5">
+
+                            <p class="font-body text-[9px] font-bold uppercase tracking-[0.16em] text-[#211A16]/35">
+                                Category
+                            </p>
+
+                            <p
+                                id="detailCategory"
+                                class="mt-2 font-heading text-2xl font-900 uppercase"
+                            >
+                                —
+                            </p>
+
+                        </div>
+
+
+                        <div class="py-5 pl-5">
+
+                            <p class="font-body text-[9px] font-bold uppercase tracking-[0.16em] text-[#211A16]/35">
+                                Availability
+                            </p>
+
+                            <p class="mt-2 font-heading text-2xl font-900 uppercase text-[#C7352D]">
+                                Fresh
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- QUANTITY -->
+
+                <div class="mt-8">
+
+                    <p class="mb-3 font-body text-[10px] font-bold uppercase tracking-[0.18em]">
+                        Quantity
+                    </p>
+
+
+                    <div class="flex w-fit items-center rounded-[4px] border border-[#211A16]/15">
+
+                        <button
+                            id="decreaseQuantity"
+                            type="button"
+                            aria-label="Decrease quantity"
+                            class="quantity-button flex h-12 w-12 items-center justify-center text-lg transition-colors hover:bg-[#211A16] hover:text-white"
+                        >
+                            −
+                        </button>
+
+
+                        <span
+                            id="quantity"
+                            class="flex h-12 min-w-12 items-center justify-center border-x border-[#211A16]/15 font-body text-sm font-bold"
+                        >
+                            1
+                        </span>
+
+
+                        <button
+                            id="increaseQuantity"
+                            type="button"
+                            aria-label="Increase quantity"
+                            class="quantity-button flex h-12 w-12 items-center justify-center text-lg transition-colors hover:bg-[#211A16] hover:text-white"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ACTIONS -->
+
+                <div class="mt-7 grid gap-3 sm:grid-cols-[1.25fr_0.75fr]">
+
+                    <button
+                        id="addToCart"
+                        type="button"
+                        class="action-button min-h-14 rounded-[4px] bg-[#C7352D] px-6 font-body text-[11px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-[#A92A24]"
+                    >
+                        Add To Cart
+                    </button>
+
+
+                    <a
+                        href="./cart.html"
+                        id="viewCartButton"
+                        class="action-button flex min-h-14 items-center justify-center rounded-[4px] border border-[#211A16]/20 px-6 font-body text-[11px] font-bold uppercase tracking-[0.15em] transition-colors hover:bg-[#211A16] hover:text-white"
+                    >
+                        View Cart
+                    </a>
+
+                </div>
+
+
+                <p class="mt-5 font-body text-[9px] font-bold uppercase leading-5 tracking-[0.12em] text-[#211A16]/35">
+                    Free delivery on orders over Rs. 2,000
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PRODUCT STORY
+========================================================= -->
+
+<section class="border-y border-[#211A16]/10 bg-[#211A16] text-[#F7F2E9]">
+
+    <div class="mx-auto max-w-[1280px] px-5 py-16 lg:px-8 lg:py-20">
+
+        <div class="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+
+            <div>
+
+                <p class="mb-4 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
+                    The Pro Bun way
+                </p>
+
+                <h2 class="font-heading text-5xl font-900 uppercase leading-[0.86] tracking-[-0.03em] sm:text-7xl">
+
+                    Built
+
+                    <br>
+
+                    Properly<span class="text-[#C7352D]">.</span>
+
+                </h2>
+
+            </div>
+
+
+            <div class="border-t border-[#F7F2E9]/10">
+
+                <div class="border-b border-[#F7F2E9]/10 py-7">
+
+                    <h3 class="font-heading text-3xl font-900 uppercase">
+                        Big Flavor
+                    </h3>
+
+                    <p class="mt-3 max-w-[650px] font-body text-sm leading-7 text-[#F7F2E9]/50">
+                        Bold seasoning, proper sauces and ingredients that actually bring something to the bite.
+                    </p>
+
+                </div>
+
+
+                <div class="border-b border-[#F7F2E9]/10 py-7">
+
+                    <h3 class="font-heading text-3xl font-900 uppercase">
+                        Proper Portions
+                    </h3>
+
+                    <p class="mt-3 max-w-[650px] font-body text-sm leading-7 text-[#F7F2E9]/50">
+                        Generous burgers, loaded sides and meals designed around serious cravings.
+                    </p>
+
+                </div>
+
+
+                <div class="py-7">
+
+                    <h3 class="font-heading text-3xl font-900 uppercase">
+                        Zero Boring Bites
+                    </h3>
+
+                    <p class="mt-3 max-w-[650px] font-body text-sm leading-7 text-[#F7F2E9]/50">
+                        A focused menu where every item has a reason to be there.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     RELATED PRODUCTS
+========================================================= -->
+
+<section class="bg-[#F7F2E9]">
+
+    <div class="mx-auto max-w-[1280px] px-5 py-20 lg:px-8 lg:py-24">
+
+        <div class="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+
+            <div>
+
+                <p class="mb-3 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#C7352D]">
+                    Keep exploring
+                </p>
+
+                <h2 class="font-heading text-5xl font-900 uppercase leading-none tracking-[-0.03em] sm:text-7xl">
+                    You might want
+                    <span class="text-[#C7352D]">these.</span>
+                </h2>
+
+            </div>
+
+
+            <a
+                href="./menu.html"
+                class="font-body text-[10px] font-bold uppercase tracking-[0.16em] underline decoration-[#C7352D] decoration-2 underline-offset-4"
+            >
+                See full menu →
+            </a>
+
+        </div>
+
+
+        <div
+            id="relatedProducts"
+            class="grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-4"
+        >
+
+            <!-- Filled by JavaScript -->
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
+
+<section class="bg-[#F7F2E9] px-5 pb-12 lg:px-8 lg:pb-16">
+
+    <div
+        class="relative mx-auto flex min-h-[390px] max-w-[1280px] items-end overflow-hidden rounded-[10px] bg-[#3A2D27]"
+        style="background-image: url('./assets/images/hero/final-cta.png'); background-size: cover; background-position: center;"
+    >
+
+        <div class="absolute inset-0 bg-[#211A16]/65"></div>
+
+
+        <div class="relative z-10 max-w-[700px] p-7 sm:p-12 lg:p-14">
+
+            <p class="mb-5 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
+                Still hungry?
+            </p>
+
+
+            <h2 class="font-heading text-6xl font-900 uppercase leading-[0.85] tracking-[-0.03em] text-white sm:text-8xl">
+
+                Make it
+
+                <br>
+
+                a meal<span class="text-[#C7352D]">.</span>
+
+            </h2>
+
+
+            <p class="mt-6 max-w-[450px] font-body text-sm leading-7 text-white/55">
+                Browse the full menu and build your order around whatever your craving is asking for.
+            </p>
+
+
+            <div class="mt-8 flex flex-wrap gap-3">
+
+                <a
+                    href="./menu.html"
+                    class="inline-flex rounded-[4px] bg-[#C7352D] px-7 py-4 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-[#A92A24]"
+                >
+                    Explore Menu
+                </a>
+
+                <a
+                    href="./contact.html"
+                    class="inline-flex rounded-[4px] border border-white/35 px-7 py-4 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-white transition-colors hover:bg-white hover:text-[#211A16]"
+                >
+                    Contact Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="bg-[#211A16] text-[#F7F2E9]">
+
+    <div class="mx-auto max-w-[1280px] px-5 py-16 lg:px-8 lg:py-20">
+
+
+        <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_0.8fr_1fr]">
+
+
+            <!-- FOOTER BRAND -->
+
+            <div>
+
+                <a
+                    href="./index.html"
+                    aria-label="PRO BUN home"
+                    class="block"
+                >
+
+                    <img
+                        src="./assets/images/brand/pro-bun-logo.svg"
+                        alt="PRO BUN"
+                        class="h-auto w-[150px]"
+                    >
+
+                </a>
+
+
+                <p class="mt-6 max-w-[320px] font-body text-sm leading-6 text-[#F7F2E9]/45">
+                    Burgers, chicken, fries and drinks made for people who take their cravings seriously.
+                </p>
+
+
+                <a
+                    href="./menu.html"
+                    class="mt-7 inline-flex rounded-[4px] border border-[#F7F2E9]/20 px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:bg-[#F7F2E9] hover:text-[#211A16]"
+                >
+                    Order Online
+                </a>
+
+            </div>
+
+
+
+            <!-- EXPLORE -->
+
+            <div>
+
+                <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
+                    Explore
+                </h3>
+
+
+                <div class="mt-6 space-y-4">
+
+                    <a
+                        href="./index.html"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Home
+                    </a>
+
+                    <a
+                        href="./menu.html"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Menu
+                    </a>
+
+                    <a
+                        href="./about.html"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Our Story
+                    </a>
+
+                    <a
+                        href="./contact.html"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MENU -->
+
+            <div>
+
+                <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
+                    Menu
+                </h3>
+
+
+                <div class="mt-6 space-y-4">
+
+                    <a
+                        href="./menu.html#burgers"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Burgers
+                    </a>
+
+                    <a
+                        href="./menu.html#chicken"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Chicken
+                    </a>
+
+                    <a
+                        href="./menu.html#fries"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Fries
+                    </a>
+
+                    <a
+                        href="./menu.html#drinks"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Drinks
+                    </a>
+
+                    <a
+                        href="./menu.html#deals"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        Deals
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CONTACT -->
+
+            <div>
+
+                <h3 class="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-[#E5A93A]">
+                    Get in touch
+                </h3>
+
+
+                <div class="mt-6 space-y-4">
+
+                    <p class="font-body text-xs leading-5 text-[#F7F2E9]/55">
+                        F7 Markaz Food Street
+                        <br>
+                        Islamabad, Pakistan
+                    </p>
+
+
+                    <a
+                        href="tel:+923000000000"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        +92 312 3456789
+                    </a>
+
+
+                    <a
+                        href="mailto:hello@probun.com"
+                        class="block font-body text-xs text-[#F7F2E9]/55 transition-colors hover:text-white"
+                    >
+                        hello@probun.com
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FOOTER BOTTOM -->
+
+        <div class="mt-16 flex flex-col gap-6 border-t border-[#F7F2E9]/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+
+
+            <p class="font-body text-[9px] font-bold uppercase tracking-[0.15em] text-[#F7F2E9]/30">
+
+                © 2026 PRO BUN.
+                Made with &#10084;&#65039; by
+
+                <span class="text-[#E5A93A]">
+                    Saim Ishfaq
+                </span>.
+
+            </p>
+
+
+
+            <!-- SOCIAL ICONS -->
+
+            <div class="flex gap-3">
+
+
+                <a
+                    href="#"
+                    aria-label="Instagram"
+                    class="flex h-10 w-10 items-center justify-center rounded-full border border-[#F7F2E9]/15 text-[#F7F2E9]/60 transition-all hover:border-[#C7352D] hover:bg-[#C7352D] hover:text-white"
+                >
+
+                    <i class="fa-brands fa-instagram text-sm"></i>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    aria-label="Facebook"
+                    class="flex h-10 w-10 items-center justify-center rounded-full border border-[#F7F2E9]/15 text-[#F7F2E9]/60 transition-all hover:border-[#C7352D] hover:bg-[#C7352D] hover:text-white"
+                >
+
+                    <i class="fa-brands fa-facebook-f text-sm"></i>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    aria-label="TikTok"
+                    class="flex h-10 w-10 items-center justify-center rounded-full border border-[#F7F2E9]/15 text-[#F7F2E9]/60 transition-all hover:border-[#C7352D] hover:bg-[#C7352D] hover:text-white"
+                >
+
+                    <i class="fa-brands fa-tiktok text-sm"></i>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div
+    id="toast"
+    class="toast fixed bottom-5 left-1/2 z-[100] -translate-x-1/2"
+>
+
+    <div class="flex items-center gap-3 rounded-[4px] bg-[#211A16] px-5 py-4 text-[#F7F2E9] shadow-2xl">
+
+        <span class="flex h-7 w-7 items-center justify-center rounded-full bg-[#C7352D]">
+
+            <i class="fa-solid fa-check text-[11px]"></i>
+
+        </span>
+
+        <p
+            id="toastMessage"
+            class="font-body text-[10px] font-bold uppercase tracking-[0.12em]"
+        >
+            Added to cart
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     PRODUCT SCRIPT
+========================================================= -->
+
+<script>
+
+    /*
+        Product data is based directly on the products linked
+        from the existing PRO BUN menu page.
+    */
+
+    const products = {
+
+        "smash-pro": {
+            name: "Smash Pro",
+            category: "Burgers",
+            tag: "PRO BUN Signature",
+            badge: "Signature",
+            price: 1290,
+            image: "./assets/images/products/smash-pro-feature.jpg",
+            description: "Smashed beef patty, cheddar, pickles, signature Pro Sauce and a toasted bun.",
+            note: "Signature burger"
+        },
+
+        "classic-pro": {
+            name: "Classic Pro",
+            category: "Burgers",
+            tag: "Original",
+            badge: "Original",
+            price: 1099,
+            image: "./assets/images/products/classic-pro.jpg",
+            description: "Beef, cheddar, lettuce, tomato and Pro Sauce.",
+            note: "Classic burger"
+        },
+
+        "cheese-melt": {
+            name: "Cheese Melt",
+            category: "Burgers",
+            tag: "Bestseller",
+            badge: "Bestseller",
+            price: 1350,
+            image: "./assets/images/products/cheese-melt.jpg",
+            description: "Double cheese, beef patty and creamy Pro Sauce.",
+            note: "Bestseller"
+        },
+
+        "double-stack": {
+            name: "Double Stack",
+            category: "Burgers",
+            tag: "Big one",
+            badge: "Big one",
+            price: 1590,
+            image: "./assets/images/products/double-stack.jpg",
+            description: "Two beef patties, double cheddar and pickles.",
+            note: "Big one"
+        },
+
+        "smoke-bomb": {
+            name: "Smoke Bomb",
+            category: "Burgers",
+            tag: "Hot pick",
+            badge: "Hot Pick",
+            price: 1390,
+            image: "./assets/images/products/smoke-bomb.jpg",
+            description: "Smoky beef, cheese, jalapeño and house sauce.",
+            note: "Hot pick"
+        },
+
+        "fire-stack": {
+            name: "Fire Stack",
+            category: "Burgers",
+            tag: "FireBite",
+            badge: "FireBite",
+            price: 1420,
+            image: "./assets/images/products/fire-stack.jpg",
+            description: "Beef, spicy sauce, jalapeño and melted cheese.",
+            note: "FireBite"
+        },
+
+        "crispy-pro": {
+            name: "Crispy Pro",
+            category: "Burgers",
+            tag: "Chicken",
+            badge: "Chicken",
+            price: 899,
+            image: "./assets/images/products/crispy-pro.jpg",
+            description: "Crispy chicken, lettuce, cool sauce and pickles.",
+            note: "Chicken burger"
+        },
+
+        "hot-chicken": {
+            name: "FireSpark Chicken",
+            category: "Chicken",
+            tag: "Spicy",
+            badge: "Spicy",
+            price: 999,
+            image: "./assets/images/products/hot-chicken.jpg",
+            description: "A spicy PRO BUN chicken pick from the crispy department.",
+            note: "Spicy chicken"
+        },
+
+        "chicken-tenders": {
+            name: "Chicken Tenders",
+            category: "Chicken",
+            tag: "Shareable",
+            badge: "Shareable",
+            price: 749,
+            image: "./assets/images/products/chicken-tenders.jpg",
+            description: "Properly seasoned chicken tenders made for sharing.",
+            note: "Shareable"
+        },
+
+        "loaded-fries": {
+            name: "Loaded Fries",
+            category: "Fries",
+            tag: "Side order",
+            badge: "Loaded",
+            price: 649,
+            image: "./assets/images/products/loaded-fries.jpg",
+            description: "Crispy fries, cheese, sauce and loaded toppings.",
+            note: "Loaded side"
+        },
+
+        "cheese-fries": {
+            name: "Cheese Fries",
+            category: "Fries",
+            tag: "Side order",
+            badge: "Cheesy",
+            price: 549,
+            image: "./assets/images/products/cheese-fries.jpg",
+            description: "Hot fries covered in melted cheese.",
+            note: "Cheesy side"
+        },
+
+        "regular-fries": {
+            name: "Classic Fries",
+            category: "Fries",
+            tag: "Side order",
+            badge: "Classic",
+            price: 399,
+            image: "./assets/images/categories/fries.jpg",
+            description: "Golden, crispy and properly salted.",
+            note: "Classic side"
+        },
+
+        "pro-cola": {
+            name: "Pro Cola",
+            category: "Drinks",
+            tag: "Ice cold",
+            badge: "Cold",
+            price: 249,
+            image: "./assets/images/products/pro-cola.jpg",
+            description: "Ice cold Pro Cola made to cut through every bite.",
+            note: "Ice cold"
+        },
+
+        "pro-lemonade": {
+            name: "Lemon Ice",
+            category: "Drinks",
+            tag: "Fresh & cold",
+            badge: "Fresh",
+            price: 299,
+            image: "./assets/images/products/pro-lemonade.jpg",
+            description: "Fresh & cold Lemon Ice for a sharp, refreshing finish.",
+            note: "Fresh & cold"
+        },
+
+        "mineral-water": {
+            name: "Mineral Water",
+            category: "Drinks",
+            tag: "Chilled",
+            badge: "Chilled",
+            price: 120,
+            image: "./assets/images/products/mineral-water.jpg",
+            description: "Chilled mineral water.",
+            note: "Chilled"
+        },
+
+        "garlic-dip": {
+            name: "Garlic Dip",
+            category: "Dips",
+            tag: "Extra sauce",
+            badge: "Dip",
+            price: 149,
+            image: "./assets/images/products/garlic-dip.jpg",
+            icon: "fa-bowl-food",
+            description: "Creamy, garlicky and built for fries.",
+            note: "Extra sauce"
+        },
+
+        "pro-sauce": {
+            name: "Pro Sauce",
+            category: "Dips",
+            tag: "Extra sauce",
+            badge: "Signature",
+            price: 149,
+            image: "./assets/images/products/pro-sauce.jpg",
+            icon: "fa-droplet",
+            description: "The sauce behind the obsession.",
+            note: "Extra sauce"
+        },
+
+        "pro-meal": {
+            name: "Pro Meal",
+            category: "Deals",
+            tag: "Meal deal",
+            badge: "Meal Deal",
+            price: 1599,
+            image: "./assets/images/products/pro-meal.png",
+            description: "Burger + fries + drink.",
+            note: "Meal deal"
+        }
+
+    };
+
+
+    const productIds = Object.keys(products);
+
+
+    const params = new URLSearchParams(window.location.search);
+
+    const productId = params.get("id");
+
+    const product = products[productId];
+
+
+    const money = (value) => {
+
+        return `Rs. ${value.toLocaleString("en-PK")}`;
+
+    };
+
+
+    const escapeHTML = (value) => {
+
+        return String(value)
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
+
+    };
+
+
+    const productMedia = document.getElementById("productMedia");
+
+    const productBadge = document.getElementById("productBadge");
+
+    const badgeText = document.getElementById("badgeText");
+
+    const productCategory = document.getElementById("productCategory");
+
+    const productName = document.getElementById("productName");
+
+    const productPrice = document.getElementById("productPrice");
+
+    const productTag = document.getElementById("productTag");
+
+    const productDescription = document.getElementById("productDescription");
+
+    const detailCategory = document.getElementById("detailCategory");
+
+    const breadcrumbName = document.getElementById("breadcrumbName");
+
+    const mediaNote = document.getElementById("mediaNote");
+
+
+
+    /*
+        Invalid product IDs are handled gracefully instead of
+        leaving a broken or empty product page.
+    */
+
+    if (!product) {
+
+        document.title = "Product Not Found | PRO BUN";
+
+        breadcrumbName.textContent = "Not Found";
+
+        productCategory.textContent = "Menu";
+
+        productName.innerHTML = "Not found<span class='text-[#C7352D]'>.</span>";
+
+        productPrice.textContent = "—";
+
+        productTag.textContent = "Check the menu";
+
+        productDescription.textContent =
+            "This product could not be found. Browse the PRO BUN menu to choose another item.";
+
+        detailCategory.textContent = "Menu";
+
+        mediaNote.textContent = "PRO BUN / Not found";
+
+        productMedia.innerHTML = `
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-[#211A16] p-8 text-center text-[#F7F2E9]">
+                <i class="fa-solid fa-burger mb-5 text-4xl text-[#C7352D]"></i>
+                <p class="font-heading text-4xl font-900 uppercase">Product not found.</p>
+                <a
+                    href="./menu.html"
+                    class="mt-6 rounded-[4px] bg-[#C7352D] px-6 py-3 font-body text-[10px] font-bold uppercase tracking-[0.15em] text-white"
+                >
+                    Back To Menu
+                </a>
+            </div>
+        `;
+
+        document.getElementById("addToCart").disabled = true;
+
+    } else {
+
+        document.title = `${product.name} | PRO BUN`;
+
+        breadcrumbName.textContent = product.name;
+
+        productCategory.textContent = product.category;
+
+        productName.innerHTML =
+            `${escapeHTML(product.name)}<span class="text-[#C7352D]">.</span>`;
+
+        productPrice.textContent = money(product.price);
+
+        productTag.textContent = product.tag;
+
+        productDescription.textContent = product.description;
+
+        detailCategory.textContent = product.category;
+
+        mediaNote.textContent =
+            `PRO BUN / ${product.note}`;
+
+
+        if (product.badge) {
+
+            productBadge.classList.remove("hidden");
+
+            badgeText.textContent = product.badge;
+
+        }
+
+
+        if (product.image) {
+
+            productMedia.innerHTML = `
+                <img
+                    src="${product.image}"
+                    alt="${escapeHTML(product.name)}"
+                    class="product-image absolute inset-0 h-full w-full object-cover"
+                >
+            `;
+
+        } else {
+
+            productMedia.innerHTML = `
+                <div class="absolute inset-0 flex flex-col items-center justify-center bg-[#211A16] text-[#F7F2E9]">
+                    <div class="flex h-28 w-28 items-center justify-center rounded-full border border-[#F7F2E9]/15">
+                        <i class="fa-solid ${product.icon || "fa-utensils"} text-4xl text-[#E5A93A]"></i>
+                    </div>
+
+                    <p class="mt-6 font-heading text-3xl font-900 uppercase">
+                        ${escapeHTML(product.name)}
+                    </p>
+
+                    <p class="mt-2 font-body text-[9px] font-bold uppercase tracking-[0.18em] text-[#F7F2E9]/40">
+                        ${escapeHTML(product.category)}
+                    </p>
+                </div>
+            `;
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       QUANTITY
+    ===================================================== */
+
+    let quantity = 1;
+
+    const quantityElement = document.getElementById("quantity");
+
+    const decreaseQuantity = document.getElementById("decreaseQuantity");
+
+    const increaseQuantity = document.getElementById("increaseQuantity");
+
+
+    const updateQuantity = (value) => {
+
+        quantity = Math.max(1, Math.min(20, value));
+
+        quantityElement.textContent = quantity;
+
+    };
+
+
+    decreaseQuantity.addEventListener("click", () => {
+
+        updateQuantity(quantity - 1);
+
+    });
+
+
+    increaseQuantity.addEventListener("click", () => {
+
+        updateQuantity(quantity + 1);
+
+    });
+
+
+
+    /* =====================================================
+       CART
+    ===================================================== */
+
+    const getCart = () => {
+
+        try {
+
+            const savedCart = localStorage.getItem("proBunCart");
+
+            return savedCart ? JSON.parse(savedCart) : [];
+
+        } catch (error) {
+
+            return [];
+
+        }
+
+    };
+
+
+    const saveCart = (cart) => {
+
+        localStorage.setItem("proBunCart", JSON.stringify(cart));
+
+        window.dispatchEvent(new Event("proBunCartUpdated"));
+
+    };
+
+
+    const getCartCount = () => {
+
+        return getCart().reduce((total, item) => {
+
+            return total + Number(item.quantity || 0);
+
+        }, 0);
+
+    };
+
+
+    const updateCartCount = () => {
+
+        const count = getCartCount();
+
+        document.getElementById("cartCountDesktop").textContent =
+            `(${count})`;
+
+        document.getElementById("cartCountMobile").textContent =
+            `(${count})`;
+
+    };
+
+
+    const addProductToCart = () => {
+
+        if (!product) {
+            return;
+        }
+
+
+        const cart = getCart();
+
+        const existingItem = cart.find(item => item.id === productId);
+
+
+        if (existingItem) {
+
+            existingItem.quantity += quantity;
+
+        } else {
+
+            cart.push({
+                id: productId,
+                name: product.name,
+                price: product.price,
+                image: product.image,
+                category: product.category,
+                quantity: quantity
+            });
+
+        }
+
+
+        saveCart(cart);
+
+        updateCartCount();
+
+        showToast(
+            `${product.name} × ${quantity} added to cart`
+        );
+
+    };
+
+
+    document.getElementById("addToCart").addEventListener(
+        "click",
+        addProductToCart
+    );
+
+
+
+    /* =====================================================
+       TOAST
+    ===================================================== */
+
+    const toast = document.getElementById("toast");
+
+    const toastMessage = document.getElementById("toastMessage");
+
+    let toastTimer;
+
+
+    const showToast = (message) => {
+
+        toastMessage.textContent = message;
+
+        toast.classList.add("show");
+
+        clearTimeout(toastTimer);
+
+        toastTimer = setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 2600);
+
+    };
+
+
+
+    /* =====================================================
+       RELATED PRODUCTS
+    ===================================================== */
+
+    const relatedContainer =
+        document.getElementById("relatedProducts");
+
+
+    const categoryOrder = [
+        "Burgers",
+        "Chicken",
+        "Fries",
+        "Drinks",
+        "Dips",
+        "Deals"
+    ];
+
+
+    const relatedProducts = product
+        ? productIds
+            .filter(id => id !== productId)
+            .sort((a, b) => {
+
+                const aSame = products[a].category === product.category ? 0 : 1;
+
+                const bSame = products[b].category === product.category ? 0 : 1;
+
+                return (
+                    aSame - bSame ||
+                    categoryOrder.indexOf(products[a].category) -
+                    categoryOrder.indexOf(products[b].category)
+                );
+
+            })
+            .slice(0, 4)
+        : productIds.slice(0, 4);
+
+
+    relatedContainer.innerHTML = relatedProducts.map(id => {
+
+        const item = products[id];
+
+        const media = item.image
+            ? `
+                <img
+                    src="${item.image}"
+                    alt="${escapeHTML(item.name)}"
+                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                >
+            `
+            : `
+                <div class="flex h-full w-full items-center justify-center bg-[#211A16] text-[#F7F2E9]">
+                    <i class="fa-solid ${item.icon || "fa-utensils"} text-3xl text-[#E5A93A]"></i>
+                </div>
+            `;
+
+
+        return `
+            <article>
+
+                <a
+                    href="./product.html?id=${id}"
+                    class="group block"
+                >
+
+                    <div class="relative aspect-[4/4.6] overflow-hidden rounded-[8px] bg-[#E8DED0]">
+
+                        ${media}
+
+                        <span class="absolute left-3 top-3 rounded-[3px] bg-[#211A16] px-3 py-2 font-body text-[9px] font-bold uppercase tracking-[0.14em] text-white">
+                            ${escapeHTML(item.badge || item.category)}
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <div class="pt-4">
+
+                    <div class="flex items-start justify-between gap-3">
+
+                        <div>
+
+                            <h3 class="font-heading text-2xl font-900 uppercase leading-none">
+                                ${escapeHTML(item.name)}
+                            </h3>
+
+                            <p class="mt-2 font-body text-xs leading-5 text-[#211A16]/50">
+                                ${escapeHTML(item.description)}
+                            </p>
+
+                        </div>
+
+                        <span class="whitespace-nowrap font-body text-sm font-bold">
+                            ${money(item.price)}
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="./product.html?id=${id}"
+                        class="mt-4 inline-flex font-body text-[10px] font-bold uppercase tracking-[0.15em] text-[#C7352D]"
+                    >
+                        View item →
+                    </a>
+
+                </div>
+
+            </article>
+        `;
+
+    }).join("");
+
+
+
+
+    /* =====================================================
+       INITIAL CART COUNT
+    ===================================================== */
+
+    updateCartCount();
+
+</script>
+
+
+<script src="./assets/js/cart-sync.js"></script>
+<script src="./assets/js/search.js"></script>
+
+<script>
+(() => {
+    const initMobileMenu = () => {
+        const button = document.getElementById('mobileMenuButton');
+        const menu = document.getElementById('mobileMenu');
+        if (!button || !menu || button.dataset.menuBound === 'true') return;
+        button.dataset.menuBound = 'true';
+        const setOpen = (open) => {
+            menu.classList.toggle('hidden', !open);
+            button.setAttribute('aria-expanded', String(open));
+            button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            button.innerHTML = open
+                ? '<i class="fa-solid fa-xmark text-sm" aria-hidden="true"></i>'
+                : '<i class="fa-solid fa-bars text-sm" aria-hidden="true"></i>';
+        };
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            setOpen(menu.classList.contains('hidden'));
+        });
+        menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+        document.addEventListener('keydown', event => { if (event.key === 'Escape') setOpen(false); });
+        window.addEventListener('resize', () => { if (window.innerWidth >= 1024) setOpen(false); });
+        setOpen(false);
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMobileMenu, { once: true });
+    else initMobileMenu();
+})();
+</script>
+</body>
+
+</html>

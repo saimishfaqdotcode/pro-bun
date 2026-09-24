@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | PRO BUN</title>
+<meta name="description" content="Complete your PRO BUN order with delivery details and payment method.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+<link rel="stylesheet" href="./dist/output.css">
+<style>
+html{scroll-behavior:smooth}body{overflow-x:hidden}
+.status-step.active .status-line{background:#C7352D}.status-step.active .status-dot{background:#C7352D;color:#fff}.status-step.done .status-dot{background:#C7352D;color:#fff}.status-step.done p{color:inherit}.status-step.current .status-dot{border-color:#C7352D;color:#C7352D}.status-step.current p:first-of-type{color:#211A16}.checkout-input:focus{outline:none;border-color:#C7352D;box-shadow:0 0 0 3px rgba(199,53,45,.1)}
+.checkout-input:focus-visible,.payment-option:focus-visible,.mobile-menu-link:focus-visible{outline:2px solid #C7352D;outline-offset:3px}
+.payment-option.selected{border-color:#C7352D;background:rgba(199,53,45,.045)}
+.payment-option.selected .payment-radio{border-color:#C7352D;background:#C7352D;box-shadow:inset 0 0 0 3px #F7F2E9}
+.order-item+.order-item{border-top:1px solid rgba(247,242,233,.1)}
+.toast{transform:translateY(18px);opacity:0;pointer-events:none;transition:all 220ms ease}.toast.show{transform:translateY(0);opacity:1}
+</style>
+</head>
+<body class="bg-[#F7F2E9] text-[#211A16] antialiased">
+
+<div class="bg-[#211A16] text-[#F7F2E9]"><div class="mx-auto flex min-h-7 max-w-[1280px] items-center justify-center px-4"><p class="font-body text-[5px] font-bold uppercase tracking-[0.18em] sm:text-[10px]">Free delivery on orders over Rs. 2,000</p></div></div>
+
+<header class="border-b border-[#211A16]/10 bg-[#F7F2E9]">
+<nav class="mx-auto flex h-[55px] max-w-[1280px] items-center justify-between px-5 lg:px-8">
+<a href="./index.html" aria-label="PRO BUN home"><img
+    src="./assets/images/brand/pro-bun-logo.svg"
+    alt="PRO BUN"
+    class="h-auto w-[90px] sm:w-[100px] lg:w-[105px]"
+></a>
+<div class="hidden items-center gap-9 lg:flex">
+<a href="./index.html" class="font-body text-[12px] font-bold uppercase tracking-[.12em] hover:text-[#C7352D]">Home</a>
+<a href="./menu.html" class="font-body text-[12px] font-bold uppercase tracking-[.12em] hover:text-[#C7352D]">Menu</a>
+<a href="./about.html" class="font-body text-[12px] font-bold uppercase tracking-[.12em] hover:text-[#C7352D]">Our Story</a>
+<a href="./contact.html" class="font-body text-[12px] font-bold uppercase tracking-[.12em] hover:text-[#C7352D]">Contact</a>
+</div>
+<div class="hidden items-center gap-7 lg:flex">
+<button id="searchButton" data-pro-search-trigger type="button" aria-label="Search PRO BUN menu" class="flex h-9 w-9 items-center justify-center rounded-[4px] border border-[#211A16]/10 transition-colors hover:border-[#C7352D] hover:text-[#C7352D]"><i class="fa-solid fa-magnifying-glass text-[12px]" aria-hidden="true"></i></button>
+<a href="./cart.html" aria-label="Shopping cart" class="font-body text-[15px] font-bold hover:text-[#C7352D]"><i class="fa-solid fa-cart-shopping"></i><span id="cartCountDesktop" class="ml-1 text-[10px] text-[#C7352D]" aria-live="polite">(0)</span></a>
+<a href="./menu.html" class="rounded-[4px] bg-[#C7352D] px-3 py-2 font-body text-[11px] font-bold uppercase tracking-[.12em] text-white hover:bg-[#A92A24]">Order Now</a>
+</div>
+<button id="mobileMenuButton" type="button" aria-label="Open menu" aria-expanded="false" class="flex h-10 w-10 items-center justify-center rounded-[4px] border border-[#211A16]/20 lg:hidden"><i class="fa-solid fa-bars text-sm"></i></button>
+</nav>
+<div id="mobileMenu" class="hidden border-t border-[#211A16]/10 bg-[#F7F2E9] lg:hidden"><div class="mx-auto max-w-[1280px] px-5 py-5"><div class="grid gap-1">
+<a href="./index.html" class="mobile-menu-link rounded-[4px] px-4 py-3 font-body text-xs font-bold uppercase tracking-[.12em] hover:bg-[#211A16] hover:text-white">Home</a>
+<a href="./menu.html" class="mobile-menu-link rounded-[4px] px-4 py-3 font-body text-xs font-bold uppercase tracking-[.12em] hover:bg-[#211A16] hover:text-white">Menu</a>
+<a href="./about.html" class="mobile-menu-link rounded-[4px] px-4 py-3 font-body text-xs font-bold uppercase tracking-[.12em] hover:bg-[#211A16] hover:text-white">Our Story</a>
+<a href="./contact.html" class="mobile-menu-link rounded-[4px] px-4 py-3 font-body text-xs font-bold uppercase tracking-[.12em] hover:bg-[#211A16] hover:text-white">Contact</a>
+<button
+    id="mobileSearchButton"
+    data-pro-search-trigger
+    type="button"
+    class="mobile-menu-link flex w-full items-center justify-between rounded-[4px] px-4 py-3 text-left font-body text-xs font-bold uppercase tracking-[0.12em] hover:bg-[#211A16] hover:text-white"
+>
+    <span>Search</span>
+    <i class="fa-solid fa-magnifying-glass text-[11px]" aria-hidden="true"></i>
+</button>
+
+                <a href="./cart.html" class="mobile-menu-link mt-2 rounded-[4px] border border-[#211A16]/15 px-4 py-3 font-body text-xs font-bold uppercase tracking-[.12em]">Cart <span id="cartCountMobile" class="ml-1 text-[#C7352D]">(0)</span></a>
+</div></div></div>
+</header>
+
+<main>
+<section class="border-b border-[#211A16]/10 bg-[#F7F2E9]">
+<div class="mx-auto max-w-[1280px] px-5 py-10 sm:py-14 lg:px-8 lg:py-16">
+<div class="flex items-center gap-2 font-body text-[9px] font-bold uppercase tracking-[.16em] text-[#211A16]/40"><a href="./index.html" class="hover:text-[#C7352D]">Home</a><span>/</span><a href="./cart.html" class="hover:text-[#C7352D]">Cart</a><span>/</span><span class="text-[#211A16]">Checkout</span></div>
+<div class="mt-7 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+<div><p class="mb-3 font-body text-[10px] font-bold uppercase tracking-[.2em] text-[#C7352D]">Final step</p><h1 class="font-heading text-[clamp(2.75rem,12vw,3.75rem)] font-900 uppercase leading-[.82] tracking-[-.035em] sm:text-8xl">Checkout<span class="text-[#C7352D]">.</span></h1></div>
+<p id="checkoutSummary" class="max-w-[300px] font-body text-xs leading-5 text-[#211A16]/45 sm:text-right">Complete your details and place your order.</p>
+</div></div>
+</section>
+
+<section class="bg-[#F7F2E9]"><div class="mx-auto max-w-[1280px] px-5 py-12 lg:px-8 lg:py-20">
+
+<div id="emptyCheckout" class="hidden rounded-[8px] border border-[#211A16]/10 bg-white/30 px-6 py-20 text-center">
+<div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#211A16] text-[#F7F2E9]"><i class="fa-solid fa-bag-shopping text-2xl"></i></div>
+<p class="mt-7 font-body text-[10px] font-bold uppercase tracking-[.2em] text-[#C7352D]">No order to checkout</p>
+<h2 class="mt-3 font-heading text-5xl font-900 uppercase leading-none sm:text-6xl">Your cart is empty<span class="text-[#C7352D]">.</span></h2>
+<p class="mx-auto mt-5 max-w-[470px] font-body text-sm leading-7 text-[#211A16]/50">Add something from the PRO BUN menu before continuing to checkout.</p>
+<a href="./menu.html" class="mt-8 inline-flex rounded-[4px] bg-[#C7352D] px-7 py-4 font-body text-[10px] font-bold uppercase tracking-[.15em] text-white hover:bg-[#A92A24]">Explore Menu</a>
+</div>
+
+<div id="checkoutLayout" class="grid gap-10 lg:grid-cols-[1fr_390px] lg:items-start lg:gap-14">
+<form id="checkoutForm" novalidate>
+
+<div class="border-b border-[#211A16]/10 pb-10">
+<p class="font-body text-[10px] font-bold uppercase tracking-[.2em] text-[#C7352D]">01</p>
+<h2 class="mt-2 font-heading text-4xl font-900 uppercase leading-none sm:text-5xl">Delivery details<span class="text-[#C7352D]">.</span></h2>
+<div class="mt-8 grid gap-5 sm:grid-cols-2">
+<label class="sm:col-span-2"><span class="font-body text-[9px] font-bold uppercase tracking-[.16em]">Full name *</span><input id="fullName" name="fullName" required autocomplete="name" placeholder="Your full name" class="checkout-input mt-2 w-full rounded-[4px] border border-[#211A16]/15 bg-white/30 px-4 py-4 font-body text-sm placeholder:text-[#211A16]/25"></label>
+<label><span class="font-body text-[9px] font-bold uppercase tracking-[.16em]">Phone number *</span><input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="+92 3XX XXXXXXX" class="checkout-input mt-2 w-full rounded-[4px] border border-[#211A16]/15 bg-white/30 px-4 py-4 font-body text-sm placeholder:text-[#211A16]/25"></label>
+<label><span class="font-body text-[9px] font-bold uppercase tracking-[.16em]">Email address</span><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" class="checkout-input mt-2 w-full rounded-[4px] border border-[#211A16]/15 bg-white/30 px-4 py-4 font-body text-sm placeholder:text-[#211A16]/25"></label>
+<label class="sm:col-span-2"><span class="font-body text-[9px] font-bold uppercase tracking-[.16em]">Delivery address *</span><textarea id="address" name="address" required rows="3" placeholder="House / street / area" class="checkout-input mt-2 w-full resize-y rounded-[4px] border border-[#211A16]/15 bg-white/30 px-4 py-4 font-body text-sm placeholder:text-[#211A16]/25"></textarea></label>
+<label><span class="font-body text-[9px] font-bold uppercase tracking-[.16em]">City *</span><input id="city" name="city" required autocomplete="address-level2" placeholder="Islamabad" class="checkout-input mt-2 w-full rounded-[4px] border border-[#211A16]/15 bg-white/30 px-4 py-4 font-body text-sm placeholder:text-[#211A16]/25"></label>
+<label><span class="font-body text-[9px] font-bold uppercase tracking-[.16em]">Delivery notes</span><input id="notes" name="notes" placeholder="Gate, floor, landmark..." class="checkout-input mt-2 w-full rounded-[4px] border border-[#211A16]/15 bg-white/30 px-4 py-4 font-body text-sm placeholder:text-[#211A16]/25"></label>
+</div></div>
+
+<div class="border-b border-[#211A16]/10 py-10">
+<p class="font-body text-[10px] font-bold uppercase tracking-[.2em] text-[#C7352D]">02</p>
+<h2 class="mt-2 font-heading text-4xl font-900 uppercase leading-none sm:text-5xl">Payment method<span class="text-[#C7352D]">.</span></h2>
+<div class="mt-8 grid gap-3">
+<button type="button" data-payment="cod" aria-pressed="true" class="payment-option selected flex w-full items-center gap-4 rounded-[6px] border p-5 text-left"><span class="payment-radio flex h-5 w-5 shrink-0 rounded-full border-2"></span><span><span class="block font-body text-xs font-bold uppercase tracking-[.08em]">Cash on delivery</span><span class="mt-1 block font-body text-[10px] leading-5 text-[#211A16]/45">Pay when your PRO BUN order arrives.</span></span></button>
+<button type="button" data-payment="online" aria-pressed="false" class="payment-option flex w-full items-center gap-4 rounded-[6px] border border-[#211A16]/10 bg-white/10 p-5 text-left"><span class="payment-radio flex h-5 w-5 shrink-0 rounded-full border-2 border-[#211A16]/25"></span><span><span class="block font-body text-xs font-bold uppercase tracking-[.08em]">Online payment</span><span class="mt-1 block font-body text-[10px] leading-5 text-[#211A16]/45">Payment gateway can be connected here later.</span></span></button>
+</div>
+<p id="paymentNote" class="mt-4 font-body text-[9px] leading-5 text-[#211A16]/40">Cash on delivery is selected. No payment details are required.</p>
+</div>
+
+<div class="pt-10">
+<p class="font-body text-[10px] font-bold uppercase tracking-[.2em] text-[#C7352D]">03</p>
+<h2 class="mt-2 font-heading text-4xl font-900 uppercase leading-none sm:text-5xl">Review & place order<span class="text-[#C7352D]">.</span></h2>
+<label class="mt-7 flex items-start gap-3"><input id="terms" type="checkbox" required class="mt-1 h-4 w-4 accent-[#C7352D]"><span class="font-body text-[10px] leading-5 text-[#211A16]/55">I confirm that my delivery information is correct and I want to place this order.</span></label>
+<button type="submit" class="mt-7 flex min-h-14 w-full items-center justify-center gap-3 rounded-[4px] bg-[#C7352D] px-6 font-body text-[10px] font-bold uppercase tracking-[.15em] text-white hover:bg-[#A92A24]">Place order <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+</div>
+</form>
+
+<aside class="lg:sticky lg:top-6"><div class="rounded-[8px] bg-[#211A16] p-6 text-[#F7F2E9] sm:p-8">
+<p class="font-body text-[10px] font-bold uppercase tracking-[.2em] text-[#E5A93A]">Your order</p>
+<h2 class="mt-3 font-heading text-4xl font-900 uppercase leading-none">Order summary<span class="text-[#C7352D]">.</span></h2>
+<div id="orderItems" class="mt-7 max-h-[330px] overflow-auto border-t border-[#F7F2E9]/10"></div>
+<div class="mt-5 space-y-4 border-t border-[#F7F2E9]/10 pt-6">
+<div class="flex justify-between gap-5"><span class="font-body text-xs text-[#F7F2E9]/45">Subtotal</span><span id="subtotal" class="font-body text-sm font-bold">Rs. 0</span></div>
+<div id="discountRow" class="hidden justify-between gap-5"><span class="font-body text-xs text-[#F7F2E9]/45">PRO10 discount</span><span id="discount" class="font-body text-sm font-bold text-[#E5A93A]">-Rs. 0</span></div>
+<div class="flex justify-between gap-5"><span class="font-body text-xs text-[#F7F2E9]/45">Delivery</span><span id="delivery" class="font-body text-sm font-bold">Rs. 0</span></div>
+<p id="deliveryNote" class="font-body text-[9px] leading-5 text-[#F7F2E9]/30">Free delivery on orders over Rs. 2,000.</p>
+</div>
+<div class="mt-6 flex items-end justify-between gap-4 border-t border-[#F7F2E9]/10 pt-6"><div><p class="font-body text-[9px] font-bold uppercase tracking-[.16em] text-[#F7F2E9]/35">Total</p><p class="mt-1 font-body text-[9px] text-[#F7F2E9]/30">Includes delivery</p></div><p id="total" class="font-heading text-4xl font-900 uppercase">Rs. 0</p></div>
+<a href="./cart.html" class="mt-6 flex justify-center rounded-[4px] border border-[#F7F2E9]/15 px-5 py-3 font-body text-[9px] font-bold uppercase tracking-[.14em] text-[#F7F2E9]/60 hover:border-[#F7F2E9]/40 hover:text-white">Edit cart</a>
+</div></aside>
+</div>
+
+<div id="successPanel" class="hidden">
+<div class="grid gap-8 lg:grid-cols-[1fr_390px] lg:items-start lg:gap-12">
+
+<div class="rounded-[8px] bg-[#211A16] px-6 py-10 text-[#F7F2E9] sm:px-10 sm:py-14">
+<div class="flex flex-col gap-5 border-b border-[#F7F2E9]/10 pb-8 sm:flex-row sm:items-center">
+<div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[#C7352D]">
+<i class="fa-solid fa-check text-xl"></i>
+</div>
+<div>
+<p class="font-body text-[10px] font-bold uppercase tracking-[.2em] text-[#E5A93A]">Order confirmed</p>
+<h2 class="mt-2 font-heading text-5xl font-900 uppercase leading-[.86] sm:text-7xl">Your order has been received<span class="text-[#C7352D]">.</span></h2>
+<p id="confirmationOrderNumber" class="mt-3 font-body text-[10px] font-bold uppercase tracking-[.14em] text-[#F7F2E9]/35"></p>
+</div>
+</div>
+
+<div class="grid gap-3 py-8 sm:grid-cols-3">
+<div class="rounded-[5px] border border-[#F7F2E9]/10 bg-[#F7F2E9]/[.03] p-4">
+<p class="font-body text-[9px] font-bold uppercase tracking-[.15em] text-[#F7F2E9]/35">Preparation</p>
+<p id="prepTime" class="mt-2 font-heading text-3xl font-900 uppercase leading-none">15 – 20 min</p>
+</div>
+<div class="rounded-[5px] border border-[#F7F2E9]/10 bg-[#F7F2E9]/[.03] p-4">
+<p class="font-body text-[9px] font-bold uppercase tracking-[.15em] text-[#F7F2E9]/35">Delivery</p>
+<p id="deliveryTime" class="mt-2 font-heading text-3xl font-900 uppercase leading-none">25–40 min</p>
+</div>
+<div class="rounded-[5px] border border-[#F7F2E9]/10 bg-[#F7F2E9]/[.03] p-4">
+<p class="font-body text-[9px] font-bold uppercase tracking-[.15em] text-[#F7F2E9]/35">Estimated arrival</p>
+<p id="arrivalWindow" class="mt-2 font-heading text-2xl font-900 uppercase leading-none">—</p>
+</div>
+</div>
+
+<div class="border-t border-[#F7F2E9]/10 pt-8">
+<p class="font-body text-[10px] font-bold uppercase tracking-[.2em] text-[#E5A93A]">Order status</p>
+<div class="mt-7 grid gap-0">
+<div class="status-step active relative flex gap-4 pb-7">
+<div class="status-dot z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#C7352D] text-white"><i class="fa-solid fa-check text-[10px]"></i></div>
+<div><p class="font-body text-xs font-bold uppercase tracking-[.08em]">Order received</p><p class="mt-1 font-body text-[10px] leading-5 text-[#F7F2E9]/40">Your order has been confirmed.</p></div>
+</div>
+<div class="status-step relative flex gap-4 pb-7">
+<div class="status-line absolute left-[15px] top-8 h-[calc(100%-16px)] w-px bg-[#F7F2E9]/10"></div>
+<div class="status-dot z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#F7F2E9]/15 bg-[#211A16] text-[#F7F2E9]/25"><i class="fa-solid fa-kitchen-set text-[10px]"></i></div>
+<div><p class="font-body text-xs font-bold uppercase tracking-[.08em] text-[#F7F2E9]/45">Preparing your food</p><p class="mt-1 font-body text-[10px] leading-5 text-[#F7F2E9]/25">The kitchen is getting your order ready.</p></div>
+</div>
+<div class="status-step relative flex gap-4 pb-7">
+<div class="status-line absolute left-[15px] top-8 h-[calc(100%-16px)] w-px bg-[#F7F2E9]/10"></div>
+<div class="status-dot z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#F7F2E9]/15 bg-[#211A16] text-[#F7F2E9]/25"><i class="fa-solid fa-motorcycle text-[10px]"></i></div>
+<div><p class="font-body text-xs font-bold uppercase tracking-[.08em] text-[#F7F2E9]/45">Out for delivery</p><p class="mt-1 font-body text-[10px] leading-5 text-[#F7F2E9]/25">Your order is on its way.</p></div>
+</div>
+<div class="status-step relative flex gap-4">
+<div class="status-dot z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#F7F2E9]/15 bg-[#211A16] text-[#F7F2E9]/25"><i class="fa-solid fa-house text-[10px]"></i></div>
+<div><p class="font-body text-xs font-bold uppercase tracking-[.08em] text-[#F7F2E9]/45">Delivered</p><p class="mt-1 font-body text-[10px] leading-5 text-[#F7F2E9]/25">Enjoy your PRO BUN order.</p></div>
+</div>
+</div>
+</div>
+
+<div class="mt-8 flex flex-wrap gap-3">
+<a href="./menu.html" class="inline-flex rounded-[4px] bg-[#C7352D] px-6 py-4 font-body text-[10px] font-bold uppercase tracking-[.15em] text-white hover:bg-[#A92A24]">Order again</a>
+<a href="./index.html" class="inline-flex rounded-[4px] border border-[#F7F2E9]/15 px-6 py-4 font-body text-[10px] font-bold uppercase tracking-[.15em] text-[#F7F2E9]/70 hover:border-[#F7F2E9]/40 hover:text-white">Back home</a>
+</div>
+</div>
+
+<aside class="rounded-[8px] border border-[#211A16]/10 bg-white/35 p-6 sm:p-8">
+<p class="font-body text-[10px] font-bold uppercase tracking-[.2em] text-[#C7352D]">Order details</p>
+<h3 class="mt-3 font-heading text-4xl font-900 uppercase leading-none">Your order<span class="text-[#C7352D]">.</span></h3>
+
+<div id="confirmationItems" class="mt-7 border-t border-[#211A16]/10"></div>
+
+<div class="mt-5 space-y-4 border-t border-[#211A16]/10 pt-5">
+<div class="flex justify-between gap-5"><span class="font-body text-xs text-[#211A16]/45">Subtotal</span><span id="confirmationSubtotal" class="font-body text-sm font-bold">Rs. 0</span></div>
+<div id="confirmationDiscountRow" class="hidden justify-between gap-5"><span class="font-body text-xs text-[#211A16]/45">PRO10 discount</span><span id="confirmationDiscount" class="font-body text-sm font-bold text-[#C7352D]">-Rs. 0</span></div>
+<div class="flex justify-between gap-5"><span class="font-body text-xs text-[#211A16]/45">Delivery</span><span id="confirmationDelivery" class="font-body text-sm font-bold">Rs. 0</span></div>
+<div class="flex justify-between gap-5 border-t border-[#211A16]/10 pt-4"><span class="font-body text-xs font-bold uppercase tracking-[.08em]">Total</span><span id="confirmationTotal" class="font-body text-base font-bold">Rs. 0</span></div>
+</div>
+
+<div class="mt-7 border-t border-[#211A16]/10 pt-6">
+<p class="font-body text-[9px] font-bold uppercase tracking-[.16em] text-[#C7352D]">Delivery address</p>
+<p id="confirmationAddress" class="mt-3 font-body text-sm leading-6 text-[#211A16]/65">—</p>
+<p id="confirmationNotes" class="mt-2 hidden font-body text-[10px] leading-5 text-[#211A16]/40"></p>
+</div>
+
+<div class="mt-7 border-t border-[#211A16]/10 pt-6">
+<p class="font-body text-[9px] font-bold uppercase tracking-[.16em] text-[#C7352D]">Payment</p>
+<p id="confirmationPayment" class="mt-2 font-body text-xs font-bold uppercase tracking-[.08em]">Cash on delivery</p>
+</div>
+</aside>
+</div>
+</div></section>
+</main>
+
+<footer class="bg-[#211A16] text-[#F7F2E9]"><div class="mx-auto max-w-[1280px] px-5 py-16 lg:px-8 lg:py-20"><div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_.8fr_.8fr_1fr]">
+<div><a href="./index.html"><img src="./assets/images/brand/pro-bun-logo.svg" alt="PRO BUN" class="w-[150px]"></a><p class="mt-6 max-w-[320px] font-body text-sm leading-6 text-[#F7F2E9]/45">Burgers, chicken, fries and drinks made for people who take their cravings seriously.</p><a href="./menu.html" class="mt-7 inline-flex rounded-[4px] border border-[#F7F2E9]/20 px-5 py-3 font-body text-[10px] font-bold uppercase tracking-[.15em] hover:bg-[#F7F2E9] hover:text-[#211A16]">Order Online</a></div>
+<div><h3 class="font-body text-[10px] font-bold uppercase tracking-[.2em] text-[#E5A93A]">Explore</h3><div class="mt-6 space-y-4"><a href="./index.html" class="block font-body text-xs text-[#F7F2E9]/55 hover:text-white">Home</a><a href="./menu.html" class="block font-body text-xs text-[#F7F2E9]/55 hover:text-white">Menu</a><a href="./about.html" class="block font-body text-xs text-[#F7F2E9]/55 hover:text-white">Our Story</a><a href="./contact.html" class="block font-body text-xs text-[#F7F2E9]/55 hover:text-white">Contact</a></div></div>
+<div><h3 class="font-body text-[10px] font-bold uppercase tracking-[.2em] text-[#E5A93A]">Menu</h3><div class="mt-6 space-y-4"><a href="./menu.html#burgers" class="block font-body text-xs text-[#F7F2E9]/55 hover:text-white">Burgers</a><a href="./menu.html#chicken" class="block font-body text-xs text-[#F7F2E9]/55 hover:text-white">Chicken</a><a href="./menu.html#fries" class="block font-body text-xs text-[#F7F2E9]/55 hover:text-white">Fries</a><a href="./menu.html#drinks" class="block font-body text-xs text-[#F7F2E9]/55 hover:text-white">Drinks</a><a href="./menu.html#deals" class="block font-body text-xs text-[#F7F2E9]/55 hover:text-white">Deals</a></div></div>
+<div><h3 class="font-body text-[10px] font-bold uppercase tracking-[.2em] text-[#E5A93A]">Get in touch</h3><div class="mt-6 space-y-4"><p class="font-body text-xs leading-5 text-[#F7F2E9]/55">F7 Markaz Food Street<br>Islamabad, Pakistan</p><a href="tel:+923123456789" class="block font-body text-xs text-[#F7F2E9]/55 hover:text-white">+92 312 3456789</a><a href="mailto:hello@probun.com" class="block font-body text-xs text-[#F7F2E9]/55 hover:text-white">hello@probun.com</a></div></div>
+</div><div class="mt-16 flex flex-col gap-6 border-t border-[#F7F2E9]/10 pt-6 sm:flex-row sm:items-center sm:justify-between"><p class="font-body text-[9px] font-bold uppercase tracking-[.15em] text-[#F7F2E9]/30">© 2026 PRO BUN. Made with &#10084;&#65039; by <span class="text-[#E5A93A]">Saim Ishfaq</span>.</p><div class="flex gap-3"><a href="#" aria-label="Instagram" class="flex h-10 w-10 items-center justify-center rounded-full border border-[#F7F2E9]/15 text-[#F7F2E9]/60 hover:border-[#C7352D] hover:bg-[#C7352D] hover:text-white"><i class="fa-brands fa-instagram text-sm"></i></a><a href="#" aria-label="Facebook" class="flex h-10 w-10 items-center justify-center rounded-full border border-[#F7F2E9]/15 text-[#F7F2E9]/60 hover:border-[#C7352D] hover:bg-[#C7352D] hover:text-white"><i class="fa-brands fa-facebook-f text-sm"></i></a><a href="#" aria-label="TikTok" class="flex h-10 w-10 items-center justify-center rounded-full border border-[#F7F2E9]/15 text-[#F7F2E9]/60 hover:border-[#C7352D] hover:bg-[#C7352D] hover:text-white"><i class="fa-brands fa-tiktok text-sm"></i></a></div></div></div></footer>
+
+<div id="toast" class="toast fixed bottom-5 left-1/2 z-[100] -translate-x-1/2"><div class="flex items-center gap-3 rounded-[4px] bg-[#211A16] px-5 py-4 text-[#F7F2E9] shadow-2xl"><span class="flex h-7 w-7 items-center justify-center rounded-full bg-[#C7352D]"><i class="fa-solid fa-check text-[11px]"></i></span><p id="toastMessage" class="font-body text-[10px] font-bold uppercase tracking-[.12em]">Updated</p></div></div>
+
+<script>
+(() => {
+const KEY="proBunCart", DELIVERY=250, FREE=2000, COUPON="PRO10";
+let payment="cod", coupon=false;
+const $=id=>document.getElementById(id);
+const money=n=>`Rs. ${Number(n||0).toLocaleString("en-PK")}`;
+const esc=v=>String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
+const cart=()=>{try{const x=JSON.parse(localStorage.getItem(KEY)||"[]");return Array.isArray(x)?x:[]}catch{return[]}};
+const count=c=>c.reduce((s,i)=>s+Math.max(0,Number(i.quantity)||0),0);
+const subtotal=c=>c.reduce((s,i)=>s+(Number(i.price)||0)*Math.max(0,Number(i.quantity)||0),0);
+const totals=c=>{let s=subtotal(c),d=s<=0||s>=FREE?0:DELIVERY,disc=coupon?Math.round(s*.1):0;return{s,d,disc,t:Math.max(0,s+d-disc)}};
+const toast=m=>{$("toastMessage").textContent=m;$("toast").classList.add("show");clearTimeout(window.pbToast);window.pbToast=setTimeout(()=>$("toast").classList.remove("show"),2400)};
+function render(){const c=cart(),n=count(c);document.querySelectorAll("#cartCountDesktop,#cartCountMobile,[data-cart-count]").forEach(e=>e.textContent=`(${n})`);if(!c.length){$("checkoutLayout").classList.add("hidden");$("emptyCheckout").classList.remove("hidden");return}$("emptyCheckout").classList.add("hidden");$("checkoutLayout").classList.remove("hidden");$("checkoutSummary").textContent=`${n} ${n===1?"item":"items"} ready for checkout.`;$("orderItems").innerHTML=c.map(i=>{let q=Math.max(1,Number(i.quantity)||1),p=Number(i.price)||0,img=i.image?`<img src="${esc(i.image)}" alt="${esc(i.name)}" class="h-14 w-14 rounded-[4px] object-cover">`:`<div class="flex h-14 w-14 items-center justify-center rounded-[4px] bg-[#3A2D27] text-[#E5A93A]"><i class="fa-solid fa-burger"></i></div>`;return`<div class="order-item flex gap-3 py-4">${img}<div class="min-w-0 flex-1"><p class="font-heading text-2xl font-900 uppercase leading-none">${esc(i.name||"Product")}</p><p class="mt-1 font-body text-[9px] uppercase tracking-[.1em] text-[#F7F2E9]/35">${q} × ${money(p)}</p></div><p class="font-body text-xs font-bold">${money(p*q)}</p></div>`}).join("");let t=totals(c);$("subtotal").textContent=money(t.s);$("delivery").textContent=t.d?"Rs. 250":"FREE";$("total").textContent=money(t.t);$("discountRow").classList.toggle("hidden",!coupon||!t.disc);$("discount").textContent=`-${money(t.disc)}`;$("deliveryNote").textContent=t.s>=FREE?"You unlocked free delivery.":t.s?`Add ${money(FREE-t.s)} more for free delivery.`:"Free delivery on orders over Rs. 2,000."}
+document.querySelectorAll("[data-payment]").forEach(b=>b.onclick=()=>{payment=b.dataset.payment;document.querySelectorAll("[data-payment]").forEach(x=>{let a=x.dataset.payment===payment;x.classList.toggle("selected",a);x.setAttribute("aria-pressed",a)});$("paymentNote").textContent=payment==="cod"?"Cash on delivery is selected. No payment details are required.":"Online payment is selected. I’ll add the payment gateway when real transactions are enabled."});
+function formatTime(date){return date.toLocaleTimeString("en-PK",{hour:"numeric",minute:"2-digit"})}
+function showConfirmation(order){
+$("checkoutLayout").classList.add("hidden");
+$("emptyCheckout").classList.add("hidden");
+$("successPanel").classList.remove("hidden");
+$("confirmationOrderNumber").textContent=`Order reference: ${order.id}`;
+const prepMin=15,prepMax=20,deliveryMin=25,deliveryMax=40;
+$("prepTime").textContent=`${prepMin}–${prepMax} min`;
+$("deliveryTime").textContent=`${deliveryMin}–${deliveryMax} min`;
+const start=new Date(order.createdAt), arrivalStart=new Date(start.getTime()+deliveryMin*60000), arrivalEnd=new Date(start.getTime()+deliveryMax*60000);
+$("arrivalWindow").textContent=`${formatTime(arrivalStart)} – ${formatTime(arrivalEnd)}`;
+const items=order.items||[];
+$("confirmationItems").innerHTML=items.map(i=>{const q=Math.max(1,Number(i.quantity)||1),p=Number(i.price)||0;return`<div class="flex items-center justify-between gap-4 border-b border-[#211A16]/10 py-4 last:border-0"><div class="min-w-0"><p class="font-heading text-2xl font-900 uppercase leading-none">${esc(i.name||"Product")}</p><p class="mt-1 font-body text-[9px] uppercase tracking-[.1em] text-[#211A16]/35">${q} × ${money(p)}</p></div><p class="font-body text-xs font-bold">${money(p*q)}</p></div>`}).join("");
+const t=order.totals||totals(items);
+$("confirmationSubtotal").textContent=money(t.s);
+$("confirmationDelivery").textContent=t.d?money(t.d):"FREE";
+$("confirmationTotal").textContent=money(t.t);
+$("confirmationDiscountRow").classList.toggle("hidden",!t.disc);
+$("confirmationDiscount").textContent=`-${money(t.disc||0)}`;
+const c=order.customer||{};
+$("confirmationAddress").textContent=[c.name,c.address,c.city].filter(Boolean).join(" • ");
+$("confirmationNotes").textContent=c.notes?`Note: ${c.notes}`:"";
+$("confirmationNotes").classList.toggle("hidden",!c.notes);
+$("confirmationPayment").textContent=order.paymentMethod==="online"?"Online payment":"Cash on delivery";
+}
+$("checkoutForm").onsubmit=e=>{e.preventDefault();let c=cart();if(!c.length){render();toast("Your cart is empty");return}if(!$("checkoutForm").checkValidity()){$("checkoutForm").reportValidity();return}let digits=$("phone").value.replace(/\D/g,"");if(digits.length<10){$("phone").setCustomValidity("Enter a valid phone number.");$("phone").reportValidity();$("phone").setCustomValidity("");return}let id=`PB-${Date.now().toString().slice(-8)}`,order={id,createdAt:new Date().toISOString(),customer:{name:$("fullName").value.trim(),phone:$("phone").value.trim(),email:$("email").value.trim(),address:$("address").value.trim(),city:$("city").value.trim(),notes:$("notes").value.trim()},paymentMethod:payment,items:c,totals:totals(c)};localStorage.setItem("proBunLastOrder",JSON.stringify(order));localStorage.removeItem(KEY);window.dispatchEvent(new Event("proBunCartUpdated"));showConfirmation(order);window.scrollTo({top:0,behavior:"smooth"})};
+$("searchButton").onclick=()=>{let q=prompt("Search PRO BUN menu:");if(q)location.href=`./menu.html?search=${encodeURIComponent(q.trim())}`};
+window.addEventListener("storage",e=>{if(e.key===KEY||e.key===null)render()});window.addEventListener("proBunCartUpdated",render);render();
+})();
+</script>
+<script src="./assets/js/cart-sync.js"></script>
+<script src="./assets/js/search.js"></script>
+<script>
+(() => {
+    const initMobileMenu = () => {
+        const button = document.getElementById('mobileMenuButton');
+        const menu = document.getElementById('mobileMenu');
+        if (!button || !menu || button.dataset.menuBound === 'true') return;
+        button.dataset.menuBound = 'true';
+        const setOpen = (open) => {
+            menu.classList.toggle('hidden', !open);
+            button.setAttribute('aria-expanded', String(open));
+            button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            button.innerHTML = open
+                ? '<i class="fa-solid fa-xmark text-sm" aria-hidden="true"></i>'
+                : '<i class="fa-solid fa-bars text-sm" aria-hidden="true"></i>';
+        };
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            setOpen(menu.classList.contains('hidden'));
+        });
+        menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+        document.addEventListener('keydown', event => { if (event.key === 'Escape') setOpen(false); });
+        window.addEventListener('resize', () => { if (window.innerWidth >= 1024) setOpen(false); });
+        setOpen(false);
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMobileMenu, { once: true });
+    else initMobileMenu();
+})();
+</script>
+</body>
+</html>
